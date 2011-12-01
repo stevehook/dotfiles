@@ -2529,9 +2529,9 @@ endfunction " >>>
 "FUNCTION: s:checkForBrowse(dir) {{{2
 "inits a secondary nerd tree in the current buffer if appropriate
 function! s:checkForBrowse(dir)
-    if a:dir != '' && isdirectory(a:dir)
-        call s:initNerdTreeInPlace(a:dir)
-    endif
+"    if a:dir != '' && isdirectory(a:dir)
+"        call s:initNerdTreeInPlace(a:dir)
+"    endif
 endfunction
 "FUNCTION: s:compareBookmarks(first, second) {{{2
 "Compares two bookmarks
