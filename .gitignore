@@ -34,3 +34,4 @@
 .ssh/
 .subversion/
 .viminfo
+.vimold/
