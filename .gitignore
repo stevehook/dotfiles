@@ -36,3 +36,4 @@
 .viminfo
 .vim.swp
 .vimold/
+.netrwhist
