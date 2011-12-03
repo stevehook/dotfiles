@@ -38,5 +38,6 @@
 .vimold/
 .netrwhist
 .gitconfig
+!gitconfig.erb
 tags
 backup/
