@@ -39,5 +39,6 @@
 .netrwhist
 .gitconfig
 !gitconfig.erb
+!git-completion.bash
 tags
 backup/
