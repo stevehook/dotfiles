@@ -10,3 +10,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export NODE_PATH="/usr/local/lib/node"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
+
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
