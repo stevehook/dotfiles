@@ -40,5 +40,6 @@
 .gitconfig
 !gitconfig.erb
 !git-completion.bash
+!README.md
 tags
 backup/
