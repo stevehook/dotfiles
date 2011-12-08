@@ -38,6 +38,7 @@
 .vimold/
 .netrwhist
 .gitconfig
+.psql_history
 !gitconfig.erb
 !git-completion.bash
 !README.md
