@@ -1,0 +1,3 @@
+alias lg="ls -Glah"
+alias ll="ls -lah"
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"

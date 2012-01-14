@@ -1,0 +1,45 @@
+" Basics
+:color steve
+:let mapleader=','
+:set guifont=Monaco:h14
+:set cursorline
+:set hidden
+:set noerrorbells
+:set history=1000
+:set undolevels=1000
+:set title
+
+" TODO: Need to put some more stuff in here
+
+" Control TAB to toggle through open buffers
+let g:LustyJugglerAltTabMode = 1
+
+noremap <silent> <C-TAB> :LustyJuggler<CR>
+noremap <silent> <leader>j :LustyJuggler<CR>
+map <silent> <F4> :LustyJugglePrevious<CR> :bd #<CR>
+
+" Toggle NERDTree with leader-n and close it automatically after opening a file
+map <leader>n :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen = 1
+
+" Simpler window navigation
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" jj as a faster alternative to Escape
+:imap jj <Esc>
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,nbsp:.,extends:.,precedes:.
+set nolist
+let g:surround_35 = "#{\r}"
+
+" Key-mappings for Ack plugin
+nmap g/ :Ack!<space>
+nmap g* :Ack! -w <C-R><C-W><space>
+

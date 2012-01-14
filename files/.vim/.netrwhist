@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/stevehook/Projects/chuffer'
+let g:netrw_dirhist_2='/Users/stevehook/.vim/bundle/vim-rails'
+let g:netrw_dirhist_3='/Users/stevehook/Projects/chuffer'
+let g:netrw_dirhist_4='/Users/stevehook/Projects/storyboard'
+let g:netrw_dirhist_5='/Users/stevehook/.dotfiles'
+let g:netrw_dirhist_6='/Users/stevehook/.dotfiles/files'
+let g:netrw_dirhist_7='/Users/stevehook/.dotfiles/files/bin'
