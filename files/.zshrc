@@ -4,6 +4,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 export NODE_PATH="/usr/local/lib/node"
 export PATH=$HOME/bin:/usr/local/git/bin:$PATH
+export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 . ~/.zsh/aliases
 
@@ -16,7 +17,7 @@ colors
 setopt prompt_subst
 
 # Prompt
-local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
+local smiley="%(?,%{$fg[green]%}➜%{$reset_color%},%{$fg[red]%}➜%{$reset_color%})"
 
 PROMPT='
 %~
