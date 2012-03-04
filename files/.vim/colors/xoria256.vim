@@ -78,7 +78,7 @@ hi VisualNOS    ctermfg=255 guifg=#eeeeee ctermbg=60  guibg=#5f5f87
 hi WildMenu     ctermfg=0   guifg=#000000 ctermbg=150 guibg=#afdf87 cterm=bold gui=bold
 
 "" Syntax highlighting {{{2
-hi Comment      ctermfg=244 guifg=#808080
+hi Comment      ctermfg=59  guifg=#808080
 hi Constant     ctermfg=229 guifg=#ffffaf
 hi Identifier   ctermfg=182 guifg=#dfafdf                           cterm=none
 hi Ignore       ctermfg=238 guifg=#444444
@@ -86,7 +86,7 @@ hi Number       ctermfg=180 guifg=#dfaf87
 hi PreProc      ctermfg=150 guifg=#afdf87
 hi Special      ctermfg=174 guifg=#df8787
 hi Statement    ctermfg=110 guifg=#87afdf                           cterm=none gui=none
-hi Type         ctermfg=146 guifg=#afafdf                           cterm=none gui=none
+hi Type         ctermfg=141 guifg=#afafdf                           cterm=none gui=none
 
 "" Special {{{2
 """ .diff {{{3
