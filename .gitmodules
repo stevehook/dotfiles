@@ -16,3 +16,6 @@
 [submodule "files/.vim/bundle/vim-ruby-refactoring"]
 	path = files/.vim/bundle/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
+[submodule "files/.vim/bundle/nerdtree"]
+	path = files/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
