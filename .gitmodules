@@ -28,3 +28,6 @@
 [submodule "files/.vim/bundle/ack.vim"]
 	path = files/.vim/bundle/ack.vim
 	url = https://github.com/vim-scripts/ack.vim
+[submodule "files/.vim/bundle/ctrlp.vim"]
+	path = files/.vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git

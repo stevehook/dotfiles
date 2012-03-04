@@ -28,8 +28,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" jj as a faster alternative to Escape
+" jj or jk as a faster alternative to Escape
 :imap jj <Esc>
+:imap jk <Esc>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
@@ -43,3 +44,6 @@ let g:surround_35 = "#{\r}"
 nmap g/ :Ack!<space>
 nmap g* :Ack! -w <C-R><C-W><space>
 
+" ctrlp plugin
+let g:ctrlp_map = '<leader><leader>'
+nnoremap <leader>. :CtrlPMRU<CR>
