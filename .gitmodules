@@ -13,3 +13,6 @@
 [submodule "files/.vim/bundle/vim-ruby"]
 	path = files/.vim/bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "files/.vim/bundle/vim-ruby-refactoring"]
+	path = files/.vim/bundle/vim-ruby-refactoring
+	url = https://github.com/ecomba/vim-ruby-refactoring.git
