@@ -12,7 +12,7 @@
 	url = https://github.com/tpope/vim-surround.git
 [submodule "files/.vim/bundle/vim-ruby"]
 	path = files/.vim/bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
+	url = https://github.com/vim-ruby/vim-ruby
 [submodule "files/.vim/bundle/vim-ruby-refactoring"]
 	path = files/.vim/bundle/vim-ruby-refactoring
 	url = https://github.com/ecomba/vim-ruby-refactoring.git
