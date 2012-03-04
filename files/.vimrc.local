@@ -1,5 +1,5 @@
 " Basics
-:color steve
+:color xoria256
 :let mapleader=','
 :set guifont=Monaco:h14
 :set cursorline

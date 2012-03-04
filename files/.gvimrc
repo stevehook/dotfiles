@@ -51,7 +51,7 @@ endif
 set guioptions-=T
 
 " Default gui color scheme
-color steve
+color xoria256
 
 " ConqueTerm wrapper
 function StartTerm()
