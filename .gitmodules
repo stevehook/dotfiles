@@ -1,3 +1,15 @@
 [submodule "files/.vim/bundle/vim-powerline"]
 	path = files/.vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "files/.vim/bundle/vim-rails"]
+	path = files/.vim/bundle/vim-rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "files/.vim/bundle/vim-fugitive"]
+	path = files/.vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "files/.vim/bundle/vim-surround"]
+	path = files/.vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "files/.vim/bundle/vim-ruby"]
+	path = files/.vim/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
