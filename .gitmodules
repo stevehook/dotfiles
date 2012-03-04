@@ -22,3 +22,6 @@
 [submodule "files/.vim/bundle/nerdcommenter"]
 	path = files/.vim/bundle/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "files/.vim/bundle/Yankring.vim"]
+	path = files/.vim/bundle/Yankring.vim
+	url = https://github.com/vim-scripts/YankRing.vim.git
