@@ -50,7 +50,7 @@ endif
 " Start without the toolbar
 set guioptions-=T
 
-" Default gui color scheme
+" Default gui color xoria256
 color xoria256
 
 " ConqueTerm wrapper
