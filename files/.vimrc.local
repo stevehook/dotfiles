@@ -1,13 +1,15 @@
 " Basics
 :color xoria256
+:colorscheme xoria256
 :let mapleader=','
 :set guifont=Monaco:h14
-:set cursorline
+":set cursorline
 :set hidden
 :set noerrorbells
 :set history=1000
 :set undolevels=1000
 :set title
+:set guioptions=aAce
 
 " TODO: Need to put some more stuff in here
 
@@ -47,3 +49,34 @@ nmap g* :Ack! -w <C-R><C-W><space>
 " ctrlp plugin
 let g:ctrlp_map = '<leader><leader>'
 nnoremap <leader>. :CtrlPMRU<CR>
+
+function! GetBufferList()
+  redir =>buflist
+  silent! ls
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
+
