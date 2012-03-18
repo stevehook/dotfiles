@@ -11,6 +11,9 @@ export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 # RVM
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
+# Tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
 # Colors
 autoload -U colors
 colors

@@ -1,6 +1,12 @@
 " Basics
-:color xoria256
-:colorscheme xoria256
+set background=dark 
+" solarized options 
+let g:solarized_termcolors=256 
+let g:solarized_visibility="high" 
+let g:solarized_contrast="high" 
+"colorscheme solarized 
+":color xoria256
+colorscheme xoria256
 :let mapleader=','
 :set guifont=Monaco:h14
 ":set cursorline
@@ -43,12 +49,12 @@ set nolist
 let g:surround_35 = "#{\r}"
 
 " Key-mappings for Ack plugin
-nmap g/ :Ack!<space>
-nmap g* :Ack! -w <C-R><C-W><space>
+nmap g/ :Ack<space>
+nmap g* :Ack -w <C-R><C-W><space>
 
 " ctrlp plugin
-let g:ctrlp_map = '<leader><leader>'
-nnoremap <leader>. :CtrlPMRU<CR>
+let g:ctrlp_map = '<leader>t'
+nnoremap <leader>g :CtrlPMRU<CR>
 
 function! GetBufferList()
   redir =>buflist
