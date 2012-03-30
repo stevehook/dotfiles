@@ -35,3 +35,5 @@ setopt menucomplete
 autoload compinit
 compinit
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
