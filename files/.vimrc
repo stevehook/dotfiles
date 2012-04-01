@@ -33,6 +33,8 @@ set laststatus=2
 " This is likely a bludgeon to solve some other issue, but it works
 set noequalalways
 
+let g:Powerline_symbols = 'fancy'
+
 " Start Pathogen
 call pathogen#infect()
 call pathogen#helptags()

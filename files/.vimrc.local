@@ -89,3 +89,24 @@ endfunction
 nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
 
+" ctags
+nmap <F8> :TagbarToggle<CR>
+nmap <leader>a :TagbarToggle<CR>
+
+" CoffeeTags
+let g:tagbar_autoclose = 1
+if executable('coffeetags')
+  let g:tagbar_type_coffee = {
+        \ 'ctagsbin' : 'coffeetags',
+        \ 'ctagsargs' : '',
+        \ 'kinds' : [
+        \ 'f:functions',
+        \ 'o:object',
+        \ ],
+        \ 'sro' : ".",
+        \ 'kind2scope' : {
+        \ 'f' : 'object',
+        \ 'o' : 'object',
+        \ }
+        \ }
+endif
