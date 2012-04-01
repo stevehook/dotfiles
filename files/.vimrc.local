@@ -36,6 +36,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+" return as a faster alternative to :nohlsearch
+:nmap <leader>s :nohlsearch<CR>
+
 " jj or jk as a faster alternative to Escape
 :imap jj <Esc>
 :imap jk <Esc>
