@@ -31,6 +31,6 @@
 [submodule "files/.vim/bundle/ctrlp.vim"]
 	path = files/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "files/.vim/bundle/tagbar.vim"]
-	path = files/.vim/bundle/tagbar.vim
+[submodule "files/.vim/bundle/tagbar"]
+	path = files/.vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar
