@@ -33,4 +33,7 @@
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule "files/.vim/bundle/tagbar"]
 	path = files/.vim/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "files/.vim/bundle/vim-jade"]
+	path = files/.vim/bundle/vim-jade
+	url = https://github.com/digitaltoad/vim-jade.git
