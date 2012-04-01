@@ -1,5 +1,5 @@
 # MacPorts Installer addition on 2011-02-15_at_19:49:49: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
