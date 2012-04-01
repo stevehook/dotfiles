@@ -2,7 +2,7 @@
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-export NODE_PATH="/usr/local/lib/node"
+export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 export PATH=$HOME/bin:/usr/local/git/bin:$PATH
 export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 
