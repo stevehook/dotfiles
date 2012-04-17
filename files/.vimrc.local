@@ -17,15 +17,6 @@ colorscheme xoria256
 :set title
 :set guioptions=aAce
 
-" TODO: Need to put some more stuff in here
-
-" Control TAB to toggle through open buffers
-let g:LustyJugglerAltTabMode = 1
-
-noremap <silent> <C-TAB> :LustyJuggler<CR>
-noremap <silent> <leader>j :LustyJuggler<CR>
-map <silent> <F4> :LustyJugglePrevious<CR> :bd #<CR>
-
 " Toggle NERDTree with leader-n and close it automatically after opening a file
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
