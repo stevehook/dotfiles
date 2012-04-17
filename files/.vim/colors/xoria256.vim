@@ -79,13 +79,13 @@ hi WildMenu     ctermfg=0   guifg=#000000 ctermbg=150 guibg=#afdf87 cterm=bold g
 
 "" Syntax highlighting {{{2
 hi Comment      ctermfg=59  guifg=#808080
-hi Constant     ctermfg=229 guifg=#ffffaf
+hi Constant     ctermfg=117 guifg=#ffffaf
 hi Identifier   ctermfg=182 guifg=#dfafdf                           cterm=none
 hi Ignore       ctermfg=238 guifg=#444444
 hi Number       ctermfg=180 guifg=#dfaf87
 hi PreProc      ctermfg=150 guifg=#afdf87
-hi Special      ctermfg=174 guifg=#df8787
-hi Statement    ctermfg=110 guifg=#87afdf                           cterm=none gui=none
+hi Special      ctermfg=86 guifg=#df8787
+hi Statement    ctermfg=86 guifg=#87afdf                           cterm=none gui=none
 hi Type         ctermfg=141 guifg=#afafdf                           cterm=none gui=none
 
 "" Special {{{2
@@ -103,9 +103,9 @@ hi diffText     ctermfg=bg  guifg=bg      ctermbg=174 guibg=#df8787 cterm=none g
 " hi htmlEndTag   ctermfg=146  guifg=#afafdf
 hi htmlTag      ctermfg=244
 hi htmlEndTag   ctermfg=244
-hi htmlArg	ctermfg=182  guifg=#dfafdf
-hi htmlValue	ctermfg=187  guifg=#dfdfaf
-hi htmlTitle	ctermfg=254  ctermbg=95
+hi htmlArg	    ctermfg=182  guifg=#dfafdf
+hi htmlValue	  ctermfg=187  guifg=#dfdfaf
+hi htmlTitle	  ctermfg=254  ctermbg=95
 " hi htmlArg	ctermfg=146
 " hi htmlTagName	ctermfg=146
 " hi htmlString	ctermfg=187
