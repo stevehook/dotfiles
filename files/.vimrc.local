@@ -17,6 +17,7 @@ colorscheme xoria256
 :set title
 :set guioptions=aAce
 
+
 " Toggle NERDTree with leader-n and close it automatically after opening a file
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
@@ -26,6 +27,7 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+map <silent> <F4> :bd #<CR>
 
 " return as a faster alternative to :nohlsearch
 :nmap <leader>s :nohlsearch<CR>
