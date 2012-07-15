@@ -37,3 +37,9 @@
 [submodule "files/.vim/bundle/vim-jade"]
 	path = files/.vim/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "files/.vim/bundle/vim-vroom"]
+	path = files/.vim/bundle/vim-vroom
+	url = https://github.com/skalnik/vim-vroom.git
+[submodule "files/.vim/bundle/vim-bundler"]
+	path = files/.vim/bundle/vim-bundler
+	url = https://github.com/tpope/vim-bundler.git
