@@ -1,4 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/stevehook/.rvm/gems/ruby-1.9.3-p194@m3/gems/jquery-rails-2.0.2'
 let g:netrw_dirhist_2='/Users/stevehook/.rvm/gems/ruby-1.9.3-p194@m3/bundler/gems/m3-library-2242ed24b013'
+let g:netrw_dirhist_3='/Users/stevehook/.vim'
+let g:netrw_dirhist_4='/Users/stevehook/dotfiles/files'
