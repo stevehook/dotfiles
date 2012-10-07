@@ -19,6 +19,14 @@ autoload -U colors
 colors
 setopt prompt_subst
 
+# History
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.history
+
+setopt inc_append_history
+setopt share_history
+
 # Prompt
 local smiley="%(?,%{$fg[green]%}➜%{$reset_color%},%{$fg[red]%}➜%{$reset_color%})"
 

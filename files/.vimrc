@@ -28,6 +28,9 @@ set wildignore+=*.o,*.obj,.git,*.rbc,tmp/**,*/node_modules/*
 " Status bar
 set laststatus=2
 
+" Diff
+set diffopt+=iwhite
+
 " Without setting this, ZoomWin restores windows in a way that causes
 " equalalways behavior to be triggered the next time CommandT is used.
 " This is likely a bludgeon to solve some other issue, but it works
@@ -48,6 +51,10 @@ let g:CommandTMaxHeight=20
 
 " ZoomWin configuration
 map <Leader><Leader> :ZoomWin<CR>
+
+" Edit files local to current buffer
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+"map <leader>e :edit %%
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
@@ -121,6 +128,13 @@ set modelines=10
 " color steve
 set t_Co=256
 color xoria256
+
+" Trailing whitespace highlighting
+highlight ExtraWhitespace ctermbg=1 guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " Directories for swp files
 set backupdir=~/.vim/backup

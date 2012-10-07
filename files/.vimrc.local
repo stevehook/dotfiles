@@ -39,6 +39,9 @@ map <silent> <F4> :bd #<CR>
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
+" Make . work in Visual mode
+vnoremap . :norm.<CR>
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬,nbsp:.,extends:.,precedes:.
 set nolist

@@ -1,7 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/stevehook/.rvm/gems/ruby-1.9.3-p194@m3/gems/jquery-rails-2.0.2'
-let g:netrw_dirhist_2='/Users/stevehook/.rvm/gems/ruby-1.9.3-p194@m3/bundler/gems/m3-library-2242ed24b013'
-let g:netrw_dirhist_3='/Users/stevehook/.vim'
-let g:netrw_dirhist_4='/Users/stevehook/dotfiles/files'
-let g:netrw_dirhist_5='/Users/stevehook/.rvm/gems/ruby-1.9.2-p290@storyboard/gems/actionpack-3.2.5'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/stevehook/.rvm/gems/ruby-1.9.3-p194@m3/gems/actionpack-3.2.3'
+let g:netrw_dirhist_2='/Users/stevehook/.rvm/gems/ruby-1.9.3-p194@m3/gems/actionpack-3.2.8'
+let g:netrw_dirhist_3='/Users/stevehook/.rvm/gems/ruby-1.9.3-p194@m3/gems/jquery-ui-rails-1.1.0'
+let g:netrw_dirhist_4='/Users/stevehook/.rvm/gems/ruby-1.9.3-p194@M3/gems/activesupport-3.2.8'
