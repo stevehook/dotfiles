@@ -1,16 +1,9 @@
 [user]
-name = <%= name %>
+  name = <%= name %>
   email = <%= email %>
-[color]
-	ui = auto
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-[core]
 [alias]
-  ci = commit
-  cm = commit -am
+  c = commit
+  ca = commit -a
   br = branch
   co = checkout
   lp = log -p
@@ -21,5 +14,18 @@ name = <%= name %>
   lf = log --pretty=fuller
   cleanup = !git gc && git remote prune origin
   fork = remote add -f
+  s = status
+  b = branch
+  ba = branch -avv
+  f = fetch
+  fo = fetch origin
+  m = merge
+  r = rebase
+  p = pull
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
 [github]
 

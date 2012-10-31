@@ -17,7 +17,6 @@ colorscheme xoria256
 :set title
 :set guioptions=aAce
 
-
 " Toggle NERDTree with leader-n and close it automatically after opening a file
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1
@@ -29,7 +28,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 map <silent> <F4> :bd #<CR>
 
-" return as a faster alternative to :nohlsearch
+" leader 's' as a faster alternative to :nohlsearch
 :nmap <leader>s :nohlsearch<CR>
 
 " jj or jk as a faster alternative to Escape
@@ -38,6 +37,9 @@ map <silent> <F4> :bd #<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
+
+" Shortcut to strip trailing whitespace
+nmap <leader>w :%s/\s\+$//e<CR>
 
 " Make . work in Visual mode
 vnoremap . :norm.<CR>
@@ -54,6 +56,8 @@ nmap g* :Ack -w <C-R><C-W><space>
 " ctrlp plugin
 let g:ctrlp_map = '<leader>t'
 nnoremap <leader>g :CtrlPMRU<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 function! GetBufferList()
   redir =>buflist
