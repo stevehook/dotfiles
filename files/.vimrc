@@ -161,3 +161,11 @@ au BufNewFile,BufRead *.ui set filetype=ruby
 
 " Correct the side bar background for Git Gutter
 highlight clear SignColumn
+
+" Move by screen lines (not lines) (for wrapped text).
+noremap j gj
+noremap k gk
+
+let g:ctrlp_custom_ignore = {
+  \ 'file': '\v\.(exe|so|dll|log|gif|jpg|jpeg|png)$'
+  \ }

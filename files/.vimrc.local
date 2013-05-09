@@ -59,6 +59,9 @@ nnoremap <leader>g :CtrlPMRU<CR>
 nnoremap <leader>m :CtrlPMRU<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 
+" git gutter plugin
+nnoremap <leader>z :ToggleGitGutter<CR>:ToggleGitGutter<CR>
+
 function! GetBufferList()
   redir =>buflist
   silent! ls
