@@ -169,3 +169,15 @@ noremap k gk
 let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|log|gif|jpg|jpeg|png)$'
   \ }
+
+
+
+" Vundle packages
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'Valloric/YouCompleteMe'
+
+filetype plugin indent on
+
