@@ -1,5 +1,10 @@
+"\e[1;9D": backward-word
+"\e[1;9C": forward-word
+
 "\e[1;5D": backward-word
 "\e[1;5C": forward-word
 
-"\e[1;6D": beginning-of-line
-"\e[1;6C": end-of-line
+"\e[1;6D": backward-word
+"\e[1;6C": forward-word
+#"\e[1;6D": beginning-of-line
+#"\e[1;6C": end-of-line

@@ -2,3 +2,5 @@ files/.vim/backup/
 .DS_Store
 files/bin/reattach-to-user-namespace
 files/.vim/.netrwhist
+files/.vim/bundle/*
+!files/.vim/bundle/vundle/
