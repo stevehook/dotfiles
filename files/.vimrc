@@ -1,3 +1,37 @@
+" Vundle packages
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'Lokaltog/powerline'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'mileszs/ack.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'YankRing.vim'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-cucumber'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'pangloss/vim-javascript'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'majutsushi/tagbar'
+Bundle 'godlygeek/tabular'
+Bundle 'thoughtbot/vim-rspec'
+Bundle 'tpope/vim-dispatch'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+
+set shell=/bin/bash
+
 set nocompatible
 
 set number
@@ -58,6 +92,11 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+
+set nocompatible
+if has("autocmd")
+  filetype indent plugin on
+endif
 
 " Remember last location in file
 if has("autocmd")
@@ -170,35 +209,10 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|log|gif|jpg|jpeg|png)$'
   \ }
 
-
-
-" Vundle packages
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
-Bundle 'Lokaltog/powerline'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'mileszs/ack.vim'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'YankRing.vim'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-cucumber'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'majutsushi/tagbar'
-Bundle 'godlygeek/tabular'
+"let g:rspec_command = "!zeus rspec {spec}"
+map <Leader>rr :call RunCurrentSpecFile()<CR>
+map <Leader>rs :call RunNearestSpec()<CR>
+map <Leader>rl :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
 
 filetype plugin indent on
-

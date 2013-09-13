@@ -793,7 +793,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SourceCodePro-MediumForPowerline 12</string>
+			<string>SourceCodePro-LightForPowerline 12</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2464,7 +2464,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2013-07-15T07:50:04Z</date>
+	<date>2013-08-29T12:53:31Z</date>
 	<key>SUSkippedVersion</key>
 	<string>1.0.0.20130622</string>
 	<key>SavePasteHistory</key>
