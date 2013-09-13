@@ -16,6 +16,7 @@ colorscheme xoria256
 :set undolevels=1000
 :set title
 :set guioptions=aAce
+:set t_vb=
 
 " Toggle NERDTree with leader-n and close it automatically after opening a file
 map <leader>n :NERDTreeToggle<CR>
