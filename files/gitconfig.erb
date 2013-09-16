@@ -1,6 +1,7 @@
 [user]
   name = <%= name %>
   email = <%= email %>
+
 [alias]
   c = commit
   ca = commit -a
@@ -22,10 +23,16 @@
   m = merge
   r = rebase
   p = pull
+
 [color]
+	ui = auto
 	branch = auto
 	diff = auto
 	interactive = auto
 	status = auto
+
 [github]
 
+
+[init]
+	templatedir = ~/.git_template
