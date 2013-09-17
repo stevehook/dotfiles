@@ -206,8 +206,10 @@ noremap j gj
 noremap k gk
 
 let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
   \ 'file': '\v\.(exe|so|dll|log|gif|jpg|jpeg|png)$'
   \ }
+let g:ctrlp_mruf_relative = 1
 
 "let g:rspec_command = "!zeus rspec {spec}"
 map <Leader>rr :call RunCurrentSpecFile()<CR>
