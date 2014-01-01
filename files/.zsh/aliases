@@ -12,3 +12,4 @@ alias esstop="launchctl unload -wF ~/Library/LaunchAgents/homebrew.mxcl.elastics
 alias gitk="gitk --all &"
 alias gg='git grep --break --heading --line-number --color=auto'
 alias foreman=forego
+
