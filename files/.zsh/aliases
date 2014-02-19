@@ -6,10 +6,14 @@ alias h="heroku"
 alias g="git"
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+alias msstart="mysql.server start"
+alias msstop="mysql.server stop"
 alias git-daemon="git daemon --base-path=/Users/stevehook/Workspace --export-all &"
 alias esstart="launchctl load -wF ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist"
 alias esstop="launchctl unload -wF ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist"
 alias gitk="gitk --all &"
 alias gg='git grep --break --heading --line-number --color=auto'
 alias foreman=forego
+alias fr="forego run"
+alias fs="forego start"
 

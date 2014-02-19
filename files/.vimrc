@@ -11,7 +11,6 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'YankRing.vim'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
@@ -21,6 +20,7 @@ Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
@@ -221,3 +221,8 @@ map <Leader>rl :call RunLastSpec()<CR>
 map <Leader>ra :call RunAllSpecs()<CR>
 
 filetype plugin indent on
+
+nmap <leader>l :set list!<CR>
+set listchars=tab:▸\ ,eol:¬
+
+
