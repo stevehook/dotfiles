@@ -1,67 +1,3 @@
-" Basics
-set background=dark 
-" solarized options 
-let g:solarized_termcolors=256 
-let g:solarized_visibility="high" 
-let g:solarized_contrast="high" 
-"colorscheme solarized 
-":color xoria256
-colorscheme xoria256
-:let mapleader=','
-:set guifont=Monaco:h14
-":set cursorline
-:set hidden
-:set noerrorbells
-:set history=1000
-:set undolevels=1000
-:set title
-:set guioptions=aAce
-:set t_vb=
-
-" Toggle NERDTree with leader-n and close it automatically after opening a file
-map <leader>n :NERDTreeToggle<CR>
-let NERDTreeQuitOnOpen = 1
-
-" Simpler window navigation
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-map <silent> <F4> :bd #<CR>
-
-" leader 's' as a faster alternative to :nohlsearch
-:nmap <leader>s :nohlsearch<CR>
-
-" jj or jk as a faster alternative to Escape
-:imap jj <Esc>
-:imap jk <Esc>
-
-" Shortcut to rapidly toggle `set list`
-"nmap <leader>l :set list!<CR>
-
-" Shortcut to strip trailing whitespace
-nmap <leader>w :%s/\s\+$//e<CR>
-
-" Make . work in Visual mode
-vnoremap . :norm.<CR>
-
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,nbsp:.,extends:.,precedes:.
-set nolist
-let g:surround_35 = "#{\r}"
-
-" Key-mappings for Ack plugin
-nmap g/ :Ack<space>
-nmap g* :Ack -w <C-R><C-W><space>
-
-" ctrlp plugin
-let g:ctrlp_map = '<leader>t'
-nnoremap <leader>g :CtrlPMRU<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-
-" git gutter plugin
-nnoremap <leader>z :ToggleGitGutter<CR>:ToggleGitGutter<CR>
 
 function! GetBufferList()
   redir =>buflist
@@ -89,13 +25,6 @@ function! ToggleList(bufname, pfx)
     wincmd p
   endif
 endfunction
-
-nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
-nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
-
-" ctags
-nmap <F8> :TagbarToggle<CR>
-nmap <leader>a :TagbarToggle<CR>
 
 " CoffeeTags
 let g:tagbar_autoclose = 1

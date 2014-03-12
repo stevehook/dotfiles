@@ -33,10 +33,20 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 
+" Basic options
+set background=dark 
+colorscheme xoria256
+let mapleader=','
+set guifont=Monaco:h14
+set hidden
+set noerrorbells
+set history=1000
+set undolevels=1000
+set title
+set guioptions=aAce
+set t_vb=
 set shell=/bin/bash
-
 set nocompatible
-
 set number
 set ruler
 syntax on
@@ -50,7 +60,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
-set list listchars=tab:\ \ ,trail:·
+set listchars=tab:▸\ ,eol:¬
+set nolist
 
 " Searching
 set hlsearch
@@ -68,20 +79,32 @@ set laststatus=2
 " Diff
 set diffopt+=iwhite
 
-" Without setting this, ZoomWin restores windows in a way that causes
-" equalalways behavior to be triggered the next time CommandT is used.
-" This is likely a bludgeon to solve some other issue, but it works
-set noequalalways
-
 let g:Powerline_symbols = 'fancy'
 
-" Start Pathogen
-"call pathogen#infect()
-"call pathogen#helptags()
+" Simpler window navigation
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+map <silent> <F4> :bd #<CR>
+
+" leader 's' as a faster alternative to :nohlsearch
+:nmap <leader>s :nohlsearch<CR>
+
+" jj or jk as a faster alternative to Escape
+:imap jj <Esc>
+:imap jk <Esc>
+
+" Shortcut to strip trailing whitespace
+nmap <leader>w :%s/\s\+$//e<CR>
+
+" Make . work in Visual mode
+vnoremap . :norm.<CR>
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen = 1
 
 " Command-T configuration
 let g:CommandTMaxHeight=20
@@ -118,15 +141,11 @@ function s:setupMarkup()
   map <buffer> <Leader>p :Mm <CR>
 endfunction
 
-" make uses real tabs
-au FileType make                                     set noexpandtab
-
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
 " md, markdown, and mk are markdown and define buffer-local preview
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
@@ -150,6 +169,9 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
+" Custom surround.vim mappings
+let g:surround_35 = "#{\r}"
+
 " Unimpaired configuration
 " Bubble single lines
 nmap <C-Up> [e
@@ -158,6 +180,19 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
+" Key-mappings for Ack plugin
+nmap g/ :Ack<space>
+nmap g* :Ack -w <C-R><C-W><space>
+
+" ctrlp plugin
+let g:ctrlp_map = '<leader>t'
+nnoremap <leader>g :CtrlPMRU<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+
+" git gutter plugin
+nnoremap <leader>z :ToggleGitGutter<CR>:ToggleGitGutter<CR>
+
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
@@ -165,6 +200,13 @@ let g:syntastic_quiet_warnings=1
 " Use modeline overrides
 set modeline
 set modelines=10
+
+nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
+
+" ctags
+nmap <F8> :TagbarToggle<CR>
+nmap <leader>a :TagbarToggle<CR>
 
 " Default color scheme
 " color steve
@@ -214,7 +256,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_mruf_relative = 1
 
-"let g:rspec_command = "!zeus rspec {spec}"
+"let g:rspec_command = "!rspec {spec}"
 map <Leader>rr :call RunCurrentSpecFile()<CR>
 map <Leader>rs :call RunNearestSpec()<CR>
 map <Leader>rl :call RunLastSpec()<CR>
@@ -223,6 +265,4 @@ map <Leader>ra :call RunAllSpecs()<CR>
 filetype plugin indent on
 
 nmap <leader>l :set list!<CR>
-set listchars=tab:▸\ ,eol:¬
-
 
