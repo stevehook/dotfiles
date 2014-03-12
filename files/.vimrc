@@ -32,9 +32,10 @@ Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-dispatch'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'tommcdo/vim-exchange'
 
 " Basic options
-set background=dark 
+set background=dark
 colorscheme xoria256
 let mapleader=','
 set guifont=Monaco:h14
