@@ -214,8 +214,8 @@ set t_Co=256
 color xoria256
 
 " Trailing whitespace highlighting
-highlight ExtraWhitespace ctermbg=1 guibg=red
-au ColorScheme * highlight ExtraWhitespace guibg=red
+" highlight ExtraWhitespace ctermbg=1 guibg=red
+" au ColorScheme * highlight ExtraWhitespace guibg=red
 au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
