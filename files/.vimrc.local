@@ -1,48 +1,48 @@
 
-function! GetBufferList()
-  redir =>buflist
-  silent! ls
-  redir END
-  return buflist
-endfunction
+" function! GetBufferList()
+"   redir =>buflist
+"   silent! ls
+"   redir END
+"   return buflist
+" endfunction
 
-function! ToggleList(bufname, pfx)
-  let buflist = GetBufferList()
-  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-    if bufwinnr(bufnum) != -1
-      exec(a:pfx.'close')
-      return
-    endif
-  endfor
-  if a:pfx == 'l' && len(getloclist(0)) == 0
-      echohl ErrorMsg
-      echo "Location List is Empty."
-      return
-  endif
-  let winnr = winnr()
-  exec(a:pfx.'open')
-  if winnr() != winnr
-    wincmd p
-  endif
-endfunction
+" function! ToggleList(bufname, pfx)
+"   let buflist = GetBufferList()
+"   for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+"     if bufwinnr(bufnum) != -1
+"       exec(a:pfx.'close')
+"       return
+"     endif
+"   endfor
+"   if a:pfx == 'l' && len(getloclist(0)) == 0
+"       echohl ErrorMsg
+"       echo "Location List is Empty."
+"       return
+"   endif
+"   let winnr = winnr()
+"   exec(a:pfx.'open')
+"   if winnr() != winnr
+"     wincmd p
+"   endif
+" endfunction
 
-" CoffeeTags
-let g:tagbar_autoclose = 1
-if executable('coffeetags')
-  let g:tagbar_type_coffee = {
-        \ 'ctagsbin' : 'coffeetags',
-        \ 'ctagsargs' : '',
-        \ 'kinds' : [
-        \ 'f:functions',
-        \ 'o:object',
-        \ ],
-        \ 'sro' : ".",
-        \ 'kind2scope' : {
-        \ 'f' : 'object',
-        \ 'o' : 'object',
-        \ }
-        \ }
-endif
+" " CoffeeTags
+" let g:tagbar_autoclose = 1
+" if executable('coffeetags')
+"   let g:tagbar_type_coffee = {
+"         \ 'ctagsbin' : 'coffeetags',
+"         \ 'ctagsargs' : '',
+"         \ 'kinds' : [
+"         \ 'f:functions',
+"         \ 'o:object',
+"         \ ],
+"         \ 'sro' : ".",
+"         \ 'kind2scope' : {
+"         \ 'f' : 'object',
+"         \ 'o' : 'object',
+"         \ }
+"         \ }
+" endif
 
 
 " Gary Bernhardt's test key mappings

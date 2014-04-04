@@ -230,11 +230,15 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>769 374 445 270 0 0 1280 778 </string>
+	<string>835 374 445 270 0 0 1280 778 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>269 784 924 485 0 0 2560 1440 </string>
+	<string>269 766 924 485 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1210 1126 0 0 2560 1440 </string>
+	<string>0 0 1210 1126 0 0 1280 800 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>1221 50 1210 1126 0 0 2560 1418 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>1161 468 850 842 0 0 2560 1418 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -788,7 +792,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>SauceCodePowerline-Light 16</string>
+			<string>SauceCodePowerline-ExtraLight 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2463,7 +2467,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-01-28T10:10:33Z</date>
+	<date>2014-03-28T10:22:45Z</date>
+	<key>SUSkippedVersion</key>
+	<string>1.0.0.20140112</string>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>

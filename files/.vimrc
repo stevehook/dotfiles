@@ -33,11 +33,12 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tommcdo/vim-exchange'
+Bundle 'christoomey/vim-tmux-navigator'
 
 " Basic options
 set background=dark
 colorscheme xoria256
-let mapleader=','
+let mapleader=","
 set guifont=Monaco:h14
 set hidden
 set noerrorbells
@@ -83,11 +84,11 @@ set diffopt+=iwhite
 let g:Powerline_symbols = 'fancy'
 
 " Simpler window navigation
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-map <silent> <F4> :bd #<CR>
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
+" map <silent> <F4> :bd #<CR>
 
 " leader 's' as a faster alternative to :nohlsearch
 :nmap <leader>s :nohlsearch<CR>
@@ -111,7 +112,7 @@ let NERDTreeQuitOnOpen = 1
 let g:CommandTMaxHeight=20
 
 " ZoomWin configuration
-map <Leader><Leader> :ZoomWin<CR>
+" map <Leader><Leader> :ZoomWin<CR>
 
 " Edit files local to current buffer
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
@@ -202,12 +203,39 @@ let g:syntastic_quiet_warnings=1
 set modeline
 set modelines=10
 
+" Shortcuts to show and hide the location and quickfix lists
+function! GetBufferList()
+  redir =>buflist
+  silent! ls
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
 nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
 
 " ctags
-nmap <F8> :TagbarToggle<CR>
-nmap <leader>a :TagbarToggle<CR>
+" nmap <F8> :TagbarToggle<CR>
+" nmap <leader>a :TagbarToggle<CR>
 
 " Default color scheme
 " color steve
@@ -235,9 +263,9 @@ let macvim_hig_shift_movement = 1
 runtime! macros/matchit.vim
 
 " Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
+" if filereadable(expand("~/.vimrc.local"))
+"   source ~/.vimrc.local
+" endif
 
 " Fix rspec syntax highlighting in non-Rails projects
 autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
@@ -252,7 +280,7 @@ noremap j gj
 noremap k gk
 
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
+  \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|logs\|tmp\|sahi\|sso_templates\|JMeter$',
   \ 'file': '\v\.(exe|so|dll|log|gif|jpg|jpeg|png)$'
   \ }
 let g:ctrlp_mruf_relative = 1
@@ -267,3 +295,6 @@ filetype plugin indent on
 
 nmap <leader>l :set list!<CR>
 
+" setup CTRLP to use git repo
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+let g:ctrlp_use_caching = 0
