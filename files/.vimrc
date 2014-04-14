@@ -34,6 +34,8 @@ Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'rking/ag.vim'
+Bundle 'plasticboy/markdown.vim'
 
 " Basic options
 set background=dark
@@ -41,7 +43,6 @@ colorscheme xoria256
 let mapleader=","
 set guifont=Monaco:h14
 set hidden
-set noerrorbells
 set history=1000
 set undolevels=1000
 set title
@@ -51,6 +52,7 @@ set shell=/bin/bash
 set nocompatible
 set number
 set ruler
+set noeb vb t_vb=
 syntax on
 
 " Set encoding
@@ -138,17 +140,17 @@ function s:setupWrapping()
   set textwidth=72
 endfunction
 
-function s:setupMarkup()
+function s:setupMarkdown()
+  set ft=markdown
   call s:setupWrapping()
-  map <buffer> <Leader>p :Mm <CR>
 endfunction
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
 
 " md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-au BufRead,BufNewFile *.txt call s:setupWrapping()
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdown()
+" au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python  set tabstop=4 textwidth=79
@@ -304,4 +306,7 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+" turn on spellchecking in Markdown files
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 
