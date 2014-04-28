@@ -28,7 +28,7 @@ Bundle 'kchmck/vim-coffee-script'
 "Bundle 'airblade/vim-gitgutter'
 Bundle 'majutsushi/tagbar'
 Bundle 'godlygeek/tabular'
-Bundle 'thoughtbot/vim-rspec'
+" Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-dispatch'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
@@ -36,6 +36,8 @@ Bundle 'tommcdo/vim-exchange'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'rking/ag.vim'
 Bundle 'plasticboy/markdown.vim'
+Bundle 'benmills/vimux'
+Bundle 'skalnik/vim-vroom'
 
 " Basic options
 set background=dark
@@ -288,10 +290,10 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_mruf_relative = 1
 
 "let g:rspec_command = "!rspec {spec}"
-map <Leader>rr :call RunCurrentSpecFile()<CR>
-map <Leader>rs :call RunNearestSpec()<CR>
-map <Leader>rl :call RunLastSpec()<CR>
-map <Leader>ra :call RunAllSpecs()<CR>
+" map <Leader>rr :call RunCurrentSpecFile()<CR>
+" map <Leader>rs :call RunNearestSpec()<CR>
+" map <Leader>rl :call RunLastSpec()<CR>
+" map <Leader>ra :call RunAllSpecs()<CR>
 
 filetype plugin indent on
 
@@ -310,3 +312,5 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " turn on spellchecking in Markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 
+" vroom config
+let g:vroom_use_vimux = 1
