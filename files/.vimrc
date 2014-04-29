@@ -35,7 +35,7 @@ Bundle 'nelstrom/vim-textobj-rubyblock'
 Bundle 'tommcdo/vim-exchange'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'rking/ag.vim'
-Bundle 'plasticboy/markdown.vim'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'benmills/vimux'
 Bundle 'skalnik/vim-vroom'
 
