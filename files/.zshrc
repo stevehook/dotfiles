@@ -43,21 +43,30 @@ setopt menucomplete
 autoload compinit
 compinit
 
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-      # Add the following to your ~/.bashrc or ~/.zshrc
-      hitch() {
-        command hitch "$@"
-        if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
-      }
-      alias unhitch='hitch -u'
-      # Uncomment to persist pair info between terminal instances
-      # hitch
-
+# Add the following to your ~/.bashrc or ~/.zshrc
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch='hitch -u'
+# Uncomment to persist pair info between terminal instances
+# hitch
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Add the z script directory finder
 . $HOME/.zsh/z.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Shortcuts to open tmux sessions managed by tmuxinator
+mx() {
+  mux $(ls ~/.tmuxinator/ | sed 's/.yml//' | selecta)
+}
+
+mxo() {
+  mux open $(ls ~/.tmuxinator/ | sed 's/.yml//' | selecta)
+}
