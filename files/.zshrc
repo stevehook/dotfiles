@@ -6,6 +6,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/share/npm/b
 export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 . ~/.zsh/aliases
+source ~/.zsh/git-prompt/zshrc.sh
 
 # RVM
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
@@ -34,7 +35,7 @@ PROMPT='
 %~
 ${smiley}  %{$reset_color%}'
 
-RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(~/dotfiles/files/bin/git-cwd-info.rb)%{$reset_color%}'
+RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(git_super_status)%{$reset_color%}'
 
 # Show completion on first TAB
 setopt menucomplete
