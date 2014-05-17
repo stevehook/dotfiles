@@ -187,8 +187,8 @@ vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
 " Key-mappings for Ack plugin
-nmap g/ :Ack<space>
-nmap g* :Ack -w <C-R><C-W><space>
+nmap g/ :Ag<space>
+nmap g* :Ag -w <C-R><C-W><space>
 
 " ctrlp plugin
 let g:ctrlp_map = '<leader>t'
