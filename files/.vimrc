@@ -22,7 +22,7 @@ Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'ecomba/vim-ruby-refactoring'
+" Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
 "Bundle 'airblade/vim-gitgutter'
@@ -39,10 +39,13 @@ Bundle 'plasticboy/vim-markdown'
 Bundle 'benmills/vimux'
 Bundle 'skalnik/vim-vroom'
 
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+
 " Basic options
 set background=dark
 colorscheme xoria256
-let mapleader=","
+let mapleader="\<Space>"
 set guifont=Monaco:h14
 set hidden
 set history=1000
@@ -123,7 +126,7 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 "map <leader>e :edit %%
 
 " CTags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+" map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 set nocompatible
 if has("autocmd")
@@ -289,12 +292,6 @@ let g:ctrlp_custom_ignore = {
   \ }
 let g:ctrlp_mruf_relative = 1
 
-"let g:rspec_command = "!rspec {spec}"
-" map <Leader>rr :call RunCurrentSpecFile()<CR>
-" map <Leader>rs :call RunNearestSpec()<CR>
-" map <Leader>rl :call RunLastSpec()<CR>
-" map <Leader>ra :call RunAllSpecs()<CR>
-
 filetype plugin indent on
 
 nmap <leader>l :set list!<CR>
@@ -314,3 +311,9 @@ autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 
 " vroom config
 let g:vroom_use_vimux = 1
+
+" ultisnips
+let g:UltiSnipsExpandTrigger="<c-d>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
