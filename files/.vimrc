@@ -21,6 +21,8 @@ Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-abolish'
 Bundle 'vim-ruby/vim-ruby'
 " Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
@@ -79,6 +81,7 @@ set ignorecase
 set smartcase
 
 " Tab completion
+set wildmenu
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,tmp/**,*/node_modules/*
 

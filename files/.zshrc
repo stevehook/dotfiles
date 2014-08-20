@@ -71,3 +71,14 @@ mx() {
 mxo() {
   mux open $(ls ~/.tmuxinator/ | sed 's/.yml//' | selecta)
 }
+
+# Some Ruby memory tuning
+export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_GC_HEAP_INIT_SLOTS=1000000
+export RUBY_HEAP_SLOTS_INCREMENT=1000000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=1000000000
+
+# enables Ctrl-S so that we can use it with Ctrl-R reverse search
+stty -ixon
+
