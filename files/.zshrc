@@ -82,3 +82,6 @@ export RUBY_GC_MALLOC_LIMIT=1000000000
 # enables Ctrl-S so that we can use it with Ctrl-R reverse search
 stty -ixon
 
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
