@@ -1,5 +1,7 @@
 # MacPorts Installer addition on 2011-02-15_at_19:49:49: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:/Applications/Postgres.app/Contents/Versions/9.3/bin:$HOME/bin:$PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 #export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
