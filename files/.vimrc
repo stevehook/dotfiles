@@ -118,6 +118,7 @@ vnoremap . :norm.<CR>
 " NERDTree configuration
 let NERDTreeIgnore=['\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
+map <Leader>f :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 
 " Command-T configuration
