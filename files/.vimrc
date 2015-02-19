@@ -90,6 +90,11 @@ set wildignore+=*.o,*.obj,.git,*.rbc,tmp/**,*/node_modules/*
 " Status bar
 set laststatus=2
 
+" Don't create temp/backup files
+set nobackup
+set nowritebackup
+set noswapfile
+
 " Diff
 set diffopt+=iwhite
 
@@ -330,7 +335,7 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>gt <Plug>(go-test)
 au FileType go nmap gd <Plug>(go-def)
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
