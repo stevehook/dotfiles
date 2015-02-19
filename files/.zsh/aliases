@@ -4,7 +4,7 @@ alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias be="bundle exec"
 alias h="heroku"
 alias g="git"
-alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstart="pg_ctl -D /usr/local/var/postgres start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 # alias pgstart="pg_ctl -D ~/Library/Application\ Support/Postgres/var-9.3 -l ~/Library/Application\ Support/Postgres/var-9.3/server.log start"
 # alias pgstop="pg_ctl -D ~/Library/Application\ Support/Postgres/var-9.3 stop -s -m fast"
@@ -18,4 +18,8 @@ alias gg='git grep --break --heading --line-number --color=auto'
 alias foreman=forego
 alias fr="forego run"
 alias fs="forego start"
-
+alias f1="fg %1"
+alias f2="fg %2"
+alias f3="fg %3"
+alias f4="fg %4"
+alias f5="fg %5"
