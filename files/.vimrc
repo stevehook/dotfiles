@@ -343,3 +343,6 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 " stop folding
 set nofoldenable
+
+" mappings to convert Ruby hashrockets to 1.9 syntax
+vmap <leader>rh :s/\v:(\w+) \=\>/\1:/g<cr>
