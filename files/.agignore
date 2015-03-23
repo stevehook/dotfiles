@@ -1,0 +1,6 @@
+log/*
+tmp/*
+i18n/translations.js
+db/startpoint.sql
+templates/*.html
+tags
