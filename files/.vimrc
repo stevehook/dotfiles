@@ -40,8 +40,9 @@ Bundle 'rking/ag.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'benmills/vimux'
 Bundle 'skalnik/vim-vroom'
+Bundle 'wincent/terminus'
 
-Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 
 Bundle 'fatih/vim-go'
@@ -322,6 +323,7 @@ autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 
 " vroom config
 let g:vroom_use_vimux = 1
+let g:vroom_spec_command = "foreman run rspec"
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-d>"
@@ -344,5 +346,12 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 " stop folding
 set nofoldenable
 
+" hard mode
+" noremap h <NOP>
+" noremap j <NOP>
+" noremap k <NOP>
+" noremap l <NOP>
+
 " mappings to convert Ruby hashrockets to 1.9 syntax
 vmap <leader>rh :s/\v:(\w+) \=\>/\1:/g<cr>
+map <leader>H :%s/\v:(\w+) \=\>/\1:/ge<cr>:%s/ \(\S*\)\.should ==/ expect(\1).to eql/e<cr>:%s/ \(\S*\)\.should/ expect(\1).to/e<cr>:%s/it { should/it { is_expected.to/e<cr>
