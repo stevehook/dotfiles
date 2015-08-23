@@ -80,6 +80,12 @@ export RUBY_GC_HEAP_INIT_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=1000000000
+export DEFERRED_GARBAGE_COLLECTION=true
+
+# Project specific settings
+export FEATURE_SERVER='http://localhost:3004/feature_request'
+# export REDIS_URL='http://localhost:6379'
+export SIGNER_KEY='HZXJBnvBdXaW7ghLVWwpxmapQaJai2Lr'
 
 # enables Ctrl-S so that we can use it with Ctrl-R reverse search
 stty -ixon
