@@ -8,10 +8,7 @@ export PATH=$PATH:$GOPATH/bin
 export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 . ~/.zsh/aliases
-source ~/.zsh/git-prompt/zshrc.sh
-
-# RVM
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
+# source ~/.zsh/git-prompt/zshrc.sh
 
 # Tmuxinator
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
@@ -37,7 +34,7 @@ PROMPT='
 %~
 ${smiley}  %{$reset_color%}'
 
-RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt)$(git_super_status)%{$reset_color%}'
+# RPROMPT='%{$fg[white]%} $(git_super_status)%{$reset_color%}'
 
 # Show completion on first TAB
 setopt menucomplete
@@ -45,8 +42,6 @@ setopt menucomplete
 # Load completions for Ruby, Git, etc.
 autoload compinit
 compinit
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Add the following to your ~/.bashrc or ~/.zshrc
 hitch() {
@@ -62,8 +57,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Add the z script directory finder
 . $HOME/.zsh/z.sh
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Shortcuts to open tmux sessions managed by tmuxinator
 mx() {

@@ -40,9 +40,14 @@ Bundle 'rking/ag.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'benmills/vimux'
 Bundle 'skalnik/vim-vroom'
-Bundle 'wincent/terminus'
+Bundle 'wellle/targets.vim'
+" Bundle 'wincent/terminus'
 
-" Bundle 'SirVer/ultisnips'
+" Elixir
+Bundle 'elixir-lang/vim-elixir'
+Bundle 'mattonrails/vim-mix'
+
+Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 
 Bundle 'fatih/vim-go'
