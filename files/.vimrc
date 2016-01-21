@@ -39,8 +39,9 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'rking/ag.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'benmills/vimux'
-Bundle 'skalnik/vim-vroom'
+" Bundle 'skalnik/vim-vroom'
 Bundle 'wellle/targets.vim'
+Bundle 'janko-m/vim-test'
 " Bundle 'wincent/terminus'
 
 " Elixir
@@ -326,14 +327,23 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " turn on spellchecking in Markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 
+" vim-test config
+nmap <silent> <leader>R :TestNearest<CR>
+nmap <silent> <leader>r :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+let test#strategy = "vimux"
+
 " vroom config
-let g:vroom_use_vimux = 1
-let g:vroom_spec_command = "foreman run rspec"
+" let g:vroom_use_vimux = 1
+" let g:vroom_spec_command = "rspec"
+" let g:vroom_spec_command = "bundle exec m"
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<c-d>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsExpandTrigger="<c-s>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " go-specific key mappings
 au FileType go nmap <Leader>i <Plug>(go-info)
