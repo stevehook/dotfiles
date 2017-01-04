@@ -90,3 +90,10 @@ fi
 function devdocs {
   /usr/bin/open "http://devdocs.io/#q=$*"
 }
+
+export ADDONS_COUNTRY=na
+
+mkcd () {
+  case "$1" in /*) :;; *) set -- "./$1";; esac
+  mkdir -p "$1" && cd "$1"
+}

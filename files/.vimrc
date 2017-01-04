@@ -30,7 +30,7 @@ Bundle 'kchmck/vim-coffee-script'
 "Bundle 'airblade/vim-gitgutter'
 Bundle 'majutsushi/tagbar'
 Bundle 'godlygeek/tabular'
-" Bundle 'thoughtbot/vim-rspec'
+Bundle 'thoughtbot/vim-rspec'
 Bundle 'tpope/vim-dispatch'
 Bundle 'kana/vim-textobj-user'
 Bundle 'nelstrom/vim-textobj-rubyblock'
@@ -39,7 +39,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'rking/ag.vim'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'benmills/vimux'
-" Bundle 'skalnik/vim-vroom'
+Bundle 'skalnik/vim-vroom'
 Bundle 'wellle/targets.vim'
 Bundle 'janko-m/vim-test'
 " Bundle 'wincent/terminus'
@@ -369,4 +369,18 @@ set nofoldenable
 
 " mappings to convert Ruby hashrockets to 1.9 syntax
 vmap <leader>rh :s/\v:(\w+) \=\>/\1:/g<cr>
-map <leader>H :%s/\v:(\w+) \=\>/\1:/ge<cr>:%s/ \(\S*\)\.should ==/ expect(\1).to eql/e<cr>:%s/ \(\S*\)\.should/ expect(\1).to/e<cr>:%s/it { should/it { is_expected.to/e<cr>
+map <leader>H :%s/\v:(\w+)(\s*)\=\>/\1: /ge<cr>:%s/ \(\S*\)\.should ==/ expect(\1).to eql/e<cr>:%s/ \(\S*\)\.should/ expect(\1).to/e<cr>:%s/it { should/it { is_expected.to/e<cr>
+
+" old regex engine is faster?
+set re=1
+
+" function to move contents of quickfix list in args list
+command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
+function! QuickfixFilenames()
+  " Building a hash ensures we get each buffer only once
+  let buffer_numbers = {}
+  for quickfix_item in getqflist()
+    let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+  endfor
+  return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
+endfunction
