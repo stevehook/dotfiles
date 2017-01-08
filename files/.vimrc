@@ -1,8 +1,8 @@
 " Vundle packages
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-call vundle#rc()
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 
@@ -52,6 +52,8 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 
 Bundle 'fatih/vim-go'
+
+call vundle#end()
 
 " Basic options
 set background=dark
