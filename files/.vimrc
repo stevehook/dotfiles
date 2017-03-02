@@ -52,6 +52,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 
 Bundle 'fatih/vim-go'
+Bundle 'ngmy/vim-rubocop'
 
 call vundle#end()
 
@@ -130,7 +131,7 @@ nmap <leader>w :%s/\s\+$//e<CR>
 vnoremap . :norm.<CR>
 
 " NERDTree configuration
-let NERDTreeIgnore=['\.rbc$', '\~$']
+let NERDTreeIgnore=['\.rbc$', '\~$', '^main$']
 map <Leader>n :NERDTreeToggle<CR>
 map <Leader>f :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
@@ -386,3 +387,7 @@ function! QuickfixFilenames()
   endfor
   return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
+
+" customise Rubocop mappings
+let g:vimrubocop_keymap = 0
+nmap <Leader>c :RuboCop<CR>
