@@ -26,6 +26,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'vim-ruby/vim-ruby'
 " Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'pangloss/vim-javascript'
+Bundle 'mxw/vim-jsx'
 Bundle 'kchmck/vim-coffee-script'
 "Bundle 'airblade/vim-gitgutter'
 Bundle 'majutsushi/tagbar'
@@ -53,6 +54,9 @@ Bundle 'honza/vim-snippets'
 
 Bundle 'fatih/vim-go'
 Bundle 'ngmy/vim-rubocop'
+
+" Colours
+Bundle 'liuchengxu/space-vim-dark'
 
 call vundle#end()
 
@@ -207,8 +211,8 @@ let g:surround_35 = "#{\r}"
 nmap <C-Up> [e
 nmap <C-Down> ]e
 " Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+vmap <C-j> ]egv
+vmap <C-k> [egv
 
 " Key-mappings for Ack plugin
 nmap g/ :Ag<space>
@@ -391,3 +395,13 @@ endfunction
 " customise Rubocop mappings
 let g:vimrubocop_keymap = 0
 nmap <Leader>c :RuboCop<CR>
+
+" Allow JSX in JS files too
+let g:jsx_ext_required = 0
+" And handle the .es6 extension (that react-rails imposes)
+autocmd BufNewFile,BufRead *.es6 set filetype=javascript.jsx
+
+" Cursor in Insert mode
+let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
