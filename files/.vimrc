@@ -1,12 +1,13 @@
-" Vundle packages
-filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 call vundle#begin()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'Lokaltog/powerline'
+" Bundle 'Lokaltog/powerline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'mileszs/ack.vim'
 Bundle 'kien/ctrlp.vim'
@@ -53,16 +54,22 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 
 Bundle 'fatih/vim-go'
-Bundle 'ngmy/vim-rubocop'
+Bundle 'w0rp/ale'
+
+" GraphQL
+Bundle 'jparise/vim-graphql'
 
 " Colours
 Bundle 'liuchengxu/space-vim-dark'
+
+Bundle 'sbdchd/neoformat'
 
 call vundle#end()
 
 " Basic options
 set background=dark
 colorscheme xoria256
+" colorscheme plain
 let mapleader="\<Space>"
 set guifont=Monaco:h14
 set hidden
@@ -112,7 +119,7 @@ set noswapfile
 " Diff
 set diffopt+=iwhite
 
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
 
 " Simpler window navigation
 " nnoremap <c-j> <c-w>j
@@ -214,6 +221,9 @@ nmap <C-Down> ]e
 vmap <C-j> ]egv
 vmap <C-k> [egv
 
+" mapping for the sudo write trick
+cmap w!! w !sudo tee > /dev/null %
+
 " Key-mappings for Ack plugin
 nmap g/ :Ag<space>
 nmap g* :Ag -w <C-R><C-W><space>
@@ -273,6 +283,7 @@ nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
 " color steve
 set t_Co=256
 color xoria256
+" color plain
 
 " Trailing whitespace highlighting
 " highlight ExtraWhitespace ctermbg=1 guibg=red
@@ -335,17 +346,13 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
 
 " vim-test config
-nmap <silent> <leader>R :TestNearest<CR>
-nmap <silent> <leader>r :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+nmap <silent> <leader>R :wall<CR>:TestNearest<CR>
+nmap <silent> <leader>r :wall<CR>:TestFile<CR>
+nmap <silent> <leader>a :wall<CR>:TestSuite<CR>
+nmap <silent> <leader>l :wall<CR>:TestLast<CR>
+nmap <silent> <leader>g :wall<CR>:TestVisit<CR>
 let test#strategy = "vimux"
 
-" vroom config
-" let g:vroom_use_vimux = 1
-" let g:vroom_spec_command = "rspec"
-" let g:vroom_spec_command = "bundle exec m"
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-s>"
@@ -396,6 +403,8 @@ endfunction
 let g:vimrubocop_keymap = 0
 nmap <Leader>c :RuboCop<CR>
 
+execute 'silent! so' "~/.vim/projects/." . fnamemodify(getcwd(), ':t')
+
 " Allow JSX in JS files too
 let g:jsx_ext_required = 0
 " And handle the .es6 extension (that react-rails imposes)
@@ -405,3 +414,30 @@ autocmd BufNewFile,BufRead *.es6 set filetype=javascript.jsx
 let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
 let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
 let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+
+" Manually run prettier.js
+nnoremap gp :silent %!prettier --stdin --trailing-comma none --print-width 100 --single-quote<CR>
+
+let g:ale_ruby_rubocop_options = ' --config .rubocop.recent.yml'
+let b:ale_ruby_rubocop_options = ' --config .rubocop.recent.yml'
+
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_sign_column_always = 1
+
+let g:ale_linters = {
+\   'javascript': ['prettier']
+\}
+
+let g:ale_fixers = {
+\   'javascript': ['prettier']
+\}
+
+let g:ale_pattern_options = {
+\   'tmp/.*\.js$': {'ale_enabled': 0}
+\}
+
+" Airline configuration
+let g:airline_powerline_fonts = 1
+let g:airline_theme='deus'
+" also try 'violet', 'minimal'

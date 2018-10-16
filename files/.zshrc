@@ -2,6 +2,7 @@
 export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+export PATH="$(yarn global bin):$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 #export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
@@ -97,3 +98,15 @@ mkcd () {
   case "$1" in /*) :;; *) set -- "./$1";; esac
   mkdir -p "$1" && cd "$1"
 }
+
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+function rbenvsudo(){
+  executable=$1
+  shift 1
+  sudo $(rbenv which $executable) $*
+}
+fpath+=${ZDOTDIR:-~}/.zsh_functions

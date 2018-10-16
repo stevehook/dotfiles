@@ -1,0 +1,2 @@
+" vim-test config
+" let test#ruby#rspec#executable = 'docker-compose exec web rspec'
