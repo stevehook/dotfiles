@@ -1,5 +1,5 @@
 alias lg="ls -Glah"
-alias ll="ls -lah"
+alias ll="ls -lahG"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias be="bundle exec"
 alias h="heroku"
@@ -30,3 +30,6 @@ alias ds="docker-sync-stack"
 alias dw="docker-compose exec web"
 alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias weather='curl wttr.in/London'
+alias listen3000='lsof -nP -i4TCP:3000 | grep LISTEN'
+alias listen='lsof -nP | grep LISTEN'
+alias size='du -ach'

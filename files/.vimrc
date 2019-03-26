@@ -418,14 +418,15 @@ let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 " Manually run prettier.js
 nnoremap gp :silent %!prettier --stdin --trailing-comma none --print-width 100 --single-quote<CR>
 
-let g:ale_ruby_rubocop_options = ' --config .rubocop.recent.yml'
-let b:ale_ruby_rubocop_options = ' --config .rubocop.recent.yml'
+let g:ale_ruby_rubocop_options = ' --config .rubocop.yml'
+let b:ale_ruby_rubocop_options = ' --config .rubocop.yml'
 
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '--'
 let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
+\   'ruby': ['rubocop'],
 \   'javascript': ['prettier']
 \}
 
@@ -441,3 +442,7 @@ let g:ale_pattern_options = {
 let g:airline_powerline_fonts = 1
 let g:airline_theme='deus'
 " also try 'violet', 'minimal'
+
+" Map Ctrl-6 to Ctrl-^ because Alacritty doesn't recognise Ctrl-6
+nnoremap <C-k6> :e #<CR>
+nnoremap <leader>p :e #<CR>

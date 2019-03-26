@@ -110,3 +110,5 @@ function rbenvsudo(){
   sudo $(rbenv which $executable) $*
 }
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+source ~/.zsh-nvm/zsh-nvm.plugin.zsh
