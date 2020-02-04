@@ -112,3 +112,11 @@ function rbenvsudo(){
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+ulimit -S -n 2048

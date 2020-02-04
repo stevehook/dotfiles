@@ -147,6 +147,8 @@ map <Leader>n :NERDTreeToggle<CR>
 map <Leader>f :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 
+" +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 " Command-T configuration
 let g:CommandTMaxHeight=20
 
@@ -187,7 +189,6 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set f
 
 " md, markdown, and mk are markdown and define buffer-local preview
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkdown()
-" au BufRead,BufNewFile *.txt call s:setupWrapping()
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python  set tabstop=4 textwidth=79
@@ -446,3 +447,5 @@ let g:airline_theme='deus'
 " Map Ctrl-6 to Ctrl-^ because Alacritty doesn't recognise Ctrl-6
 nnoremap <C-k6> :e #<CR>
 nnoremap <leader>p :e #<CR>
+
+command FormatJson :%!jq .

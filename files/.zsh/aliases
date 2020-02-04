@@ -5,6 +5,7 @@ alias be="bundle exec"
 alias h="heroku"
 alias g="git"
 alias vi="vim"
+alias rc="bundle exec rubocop"
 alias pgstart="pg_ctl -D /usr/local/var/postgres start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 alias ret="RAILS_ENV=test"
@@ -32,4 +33,5 @@ alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
 alias weather='curl wttr.in/London'
 alias listen3000='lsof -nP -i4TCP:3000 | grep LISTEN'
 alias listen='lsof -nP | grep LISTEN'
-alias size='du -ach'
+alias size='du -Hhd 1'
+alias kc='kubectl'
