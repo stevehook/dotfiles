@@ -1,0 +1,17 @@
+# /Users/steve/.config/tmuxinator/apply.yml
+
+name: apply
+root: ~/Work/dfe/apply-for-teacher-training
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vi
+        -
+  - zsh:
+  - zsh:
+  - zsh:
+  - zsh:
+  - psql: psql bat_apply_development
+  - zsh:

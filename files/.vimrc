@@ -61,14 +61,16 @@ Bundle 'jparise/vim-graphql'
 
 " Colours
 Bundle 'liuchengxu/space-vim-dark'
+Bundle 'wadackel/vim-dogrun'
 
 Bundle 'sbdchd/neoformat'
+
 
 call vundle#end()
 
 " Basic options
 set background=dark
-colorscheme xoria256
+" colorscheme dogrun
 " colorscheme plain
 let mapleader="\<Space>"
 set guifont=Monaco:h14
@@ -283,15 +285,16 @@ nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
 " Default color scheme
 " color steve
 set t_Co=256
-color xoria256
+" color xoria256
 " color plain
+color dogrun
 
 " Trailing whitespace highlighting
 " highlight ExtraWhitespace ctermbg=1 guibg=red
 " au ColorScheme * highlight ExtraWhitespace guibg=red
-au BufEnter * match ExtraWhitespace /\s\+$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhiteSpace /\s\+$/
+" au BufEnter * match ExtraWhitespace /\s\+$/
+" au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 " Directories for swp files
 set backupdir=~/.vim/backup

@@ -1,4 +1,5 @@
 let g:python_host_prog='/usr/local/bin/python'
+Plug 'radenling/vim-dispatch-neovim'
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after
 " let &packpath = &runtimepath
 " source ~/.vimrc
@@ -6,13 +7,13 @@ let g:python_host_prog='/usr/local/bin/python'
 " purple -> Aquamarine (86)
 " yellow - LightSkyBlue3 (110)
 " blue - MediumPurple1 (141)
-" red - LightPink1 (217)
+" red - LightYellow? (230)
 " cyan - LightSkyBlue1 (153)
 let g:onedark_color_overrides = {
 \ "black": {"gui": "D0D0D0", "cterm": "233", "cterm16": "0" },
 \ "purple": { "gui": "#5fffd7", "cterm": "86", "cterm16": "5" },
 \ "blue": { "gui": "#AF87FF", "cterm": "141", "cterm16": "4" },
-\ "red": { "gui": "#FFAFAF", "cterm": "217", "cterm16": "1" },
+\ "red": { "gui": "#FFFFDF", "cterm": "230", "cterm16": "1" },
 \ "yellow": { "gui": "#AF87FF", "cterm": "141", "cterm16": "1" },
 \ "cyan": { "gui": "#AFD7FF", "cterm": "153", "cterm16": "4" }
 \}
@@ -24,6 +25,20 @@ Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-dispatch'
+" Plug 'nelstrom/vim-textobj-rubyblock' " errors at startup?
+Plug 'radenling/vim-dispatch-neovim'
+Plug 'janko-m/vim-test'
 
 " Make sure you use single quotes
 
@@ -47,7 +62,7 @@ set background=dark
 colorscheme onedark
 " colorscheme plain
 let mapleader="\<Space>"
-set guifont=Monaco:h14
+" set guifont=Monaco:h14
 set hidden
 set history=1000
 set undolevels=1000
@@ -118,3 +133,42 @@ let NERDTreeQuitOnOpen = 1
 nnoremap <leader>g :Files<CR>
 nnoremap <leader>m :History<CR>
 nnoremap <leader>b :Buffers<CR>
+
+
+" coc completion config
+" Use <Tab> and <S-Tab> to navigate the completion list:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Use <cr> to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"To make <cr> select the first completion item and confirm the completion when no item has been selected:
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" To make coc.nvim format your code on <cr>, use keymap:
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Close the preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
+" Lightline colourscheme
+let g:lightline = {
+    \ 'colorscheme': 'onedark',
+		\ 'component': {
+		\   'lineinfo': ' %3l:%-2v',
+		\ },
+		\ 'component_function': {
+		\   'readonly': 'LightlineReadonly',
+		\   'fugitive': 'LightlineFugitive'
+		\ },
+		\ 'separator': { 'left': '', 'right': '' },
+		\ 'subseparator': { 'left': '', 'right': '' }
+		\ }
+function! LightlineReadonly()
+  return &readonly ? '' : ''
+endfunction
+function! LightlineFugitive()
+  if exists('*FugitiveHead')
+    let branch = FugitiveHead()
+    return branch !=# '' ? ''.branch : ''
+  endif
+  return ''
+endfunction
