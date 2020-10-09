@@ -14,6 +14,8 @@
   #TERM: xterm-256color
 
 window:
+  dynamic_title: true
+
   # Window dimensions (changes require restart)
   #
   # Specified in number of columns/lines, not pixels.
@@ -64,10 +66,10 @@ scrolling:
   # to allow mouse scrolling for applications like `man`.
   #
   # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
+  # faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
-  auto_scroll: false
+  # auto_scroll: false
 
 # Spaces per Tab (changes require restart)
 #
@@ -76,7 +78,7 @@ scrolling:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-tabspaces: 2
+# tabspaces: 2
 
 # Font configuration (changes require restart)
 font:
@@ -142,7 +144,7 @@ draw_bold_text_with_bright_colors: true
 colors:
   # Default colors
   primary:
-    background: '0x000000'
+    background: '0x121212'
     foreground: '0xeaeaea'
 
     # Bright and dim foreground colors
@@ -164,19 +166,19 @@ colors:
   # Normal colors
   normal:
     black:   '0x616161'
-    red:     '0xff8272'
-    green:   '0xb4fa72'
+    red:     '0xffafaf'
+    green:   '0xd7ffd7'
     yellow:  '0xfefdc2'
-    blue:    '0xa5d5fe'
+    blue:    '0xafafd7'
     magenta: '0xff8ffd'
-    cyan:    '0xd0d1fe'
+    cyan:    '0xafafd7'
     white:   '0xf1f1f1'
 
   # Bright colors
   bright:
     black:   '0x8e8e8e'
-    red:     '0xffc4bd'
-    green:   '0xd6fcb9'
+    red:     '0xff8787'
+    green:   '0xd7ffd7'
     yellow:  '0xfefdd5'
     blue:    '0xc1e3fe'
     magenta: '0xffb1fe'
@@ -187,15 +189,15 @@ colors:
   #
   # If the dim colors are not set, they will be calculated automatically based
   # on the `normal` colors.
-  dim:
-    black:   '0x333333'
-    red:     '0xf2777a'
-    green:   '0x99cc99'
-    yellow:  '0xffcc66'
-    blue:    '0x6699cc'
-    magenta: '0xcc99cc'
-    cyan:    '0x66cccc'
-    white:   '0xdddddd'
+  # dim:
+  #   black:   '0x333333'
+  #   red:     '0xf2777a'
+  #   green:   '0x99cc99'
+  #   yellow:  '0xffcc66'
+  #   blue:    '0x6699cc'
+  #   magenta: '0xcc99cc'
+  #   cyan:    '0x66cccc'
+  #   white:   '0xdddddd'
 
   # Indexed Colors
   #
@@ -226,7 +228,7 @@ colors:
 #   - Linear
 #
 # Specifying a `duration` of `0` will disable the visual bell.
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -268,8 +270,6 @@ selection:
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   save_to_clipboard: false
-
-dynamic_title: true
 
 hide_cursor_when_typing: false
 

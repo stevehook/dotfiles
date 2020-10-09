@@ -61,7 +61,7 @@ Bundle 'jparise/vim-graphql'
 
 " Colours
 Bundle 'liuchengxu/space-vim-dark'
-Bundle 'wadackel/vim-dogrun'
+" Bundle 'wadackel/vim-dogrun'
 
 Bundle 'sbdchd/neoformat'
 
@@ -70,7 +70,6 @@ call vundle#end()
 
 " Basic options
 set background=dark
-" colorscheme dogrun
 " colorscheme plain
 let mapleader="\<Space>"
 set guifont=Monaco:h14
@@ -285,9 +284,9 @@ nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
 " Default color scheme
 " color steve
 set t_Co=256
-" color xoria256
+color xoria256
 " color plain
-color dogrun
+" color dogrun
 
 " Trailing whitespace highlighting
 " highlight ExtraWhitespace ctermbg=1 guibg=red

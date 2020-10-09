@@ -1,22 +1,33 @@
 let g:python_host_prog='/usr/local/bin/python'
-Plug 'radenling/vim-dispatch-neovim'
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after
 " let &packpath = &runtimepath
 " source ~/.vimrc
 
-" purple -> Aquamarine (86)
-" yellow - LightSkyBlue3 (110)
-" blue - MediumPurple1 (141)
-" red - LightYellow? (230)
+" purple -> LightCyan1 (195)
+" yellow - Thistle1 (225)
+" blue - LightSteelBlue (146)
+" red - Cornsilk1 (230)
+" dark_red - Cornsilk1 (230)
 " cyan - LightSkyBlue1 (153)
+" green - Honeydew (194)
 let g:onedark_color_overrides = {
-\ "black": {"gui": "D0D0D0", "cterm": "233", "cterm16": "0" },
-\ "purple": { "gui": "#5fffd7", "cterm": "86", "cterm16": "5" },
-\ "blue": { "gui": "#AF87FF", "cterm": "141", "cterm16": "4" },
-\ "red": { "gui": "#FFFFDF", "cterm": "230", "cterm16": "1" },
-\ "yellow": { "gui": "#AF87FF", "cterm": "141", "cterm16": "1" },
-\ "cyan": { "gui": "#AFD7FF", "cterm": "153", "cterm16": "4" }
+\ "red": { "gui": "#FFFFDF", "cterm": "153", "cterm16": "1" },
+\ "dark_red": { "gui": "#FFFFDF", "cterm": "153", "cterm16": "1" },
+\ "green": { "gui": "#d7ffd7", "cterm": "194", "cterm16": "4" },
+\ "yellow": { "gui": "#AF87FF", "cterm": "225", "cterm16": "1" },
+\ "dark_yellow": { "gui": "#AF87FF", "cterm": "225", "cterm16": "1" },
+\ "blue": { "gui": "#afafff", "cterm": "146", "cterm16": "4" },
+\ "purple": { "gui": "#5fffd7", "cterm": "195", "cterm16": "5" },
+\ "cyan": { "gui": "#AFD7FF", "cterm": "194", "cterm16": "4" },
+\ "black": {"gui": "D0D0D0", "cterm": "233", "cterm16": "0" }
 \}
+
+" white
+" black
+" visual_black
+" comment_grey
+" gutter_fg_grey
+
  
 " Vimplug
 call plug#begin('~/.config/nvim/plugged')
@@ -39,6 +50,8 @@ Plug 'tpope/vim-dispatch'
 " Plug 'nelstrom/vim-textobj-rubyblock' " errors at startup?
 Plug 'radenling/vim-dispatch-neovim'
 Plug 'janko-m/vim-test'
+Plug 'benmills/vimux'
+Plug 'skalnik/vim-vroom'
 
 " Make sure you use single quotes
 
@@ -130,10 +143,9 @@ map <Leader>f :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen = 1
 
 " fzf shortcuts
-nnoremap <leader>g :Files<CR>
+nnoremap <leader>t :Files<CR>
 nnoremap <leader>m :History<CR>
 nnoremap <leader>b :Buffers<CR>
-
 
 " coc completion config
 " Use <Tab> and <S-Tab> to navigate the completion list:
@@ -147,7 +159,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " Close the preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
 
 " Lightline colourscheme
 let g:lightline = {
@@ -172,3 +183,17 @@ function! LightlineFugitive()
   endif
   return ''
 endfunction
+
+
+" vim-test config
+nmap <silent> <leader>R :wall<CR>:TestNearest<CR>
+nmap <silent> <leader>r :wall<CR>:TestFile<CR>
+nmap <silent> <leader>a :wall<CR>:TestSuite<CR>
+nmap <silent> <leader>l :wall<CR>:TestLast<CR>
+nmap <silent> <leader>g :wall<CR>:TestVisit<CR>
+let test#strategy = "vimux"
+
+" Map Ctrl-6 to Ctrl-^ because Alacritty doesn't recognise Ctrl-6
+nnoremap <C-k6> :e #<CR>
+" Shortcut for Ctrl-^
+nnoremap <leader>p :e #<CR>
