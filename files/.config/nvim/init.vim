@@ -22,11 +22,16 @@ let g:onedark_color_overrides = {
 \ "black": {"gui": "D0D0D0", "cterm": "233", "cterm16": "0" }
 \}
 
-" white
-" black
-" visual_black
-" comment_grey
-" gutter_fg_grey
+if (has("autocmd"))
+  augroup colorextend
+    autocmd!
+    " Override Search highlights
+    autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "cterm": "233" } })
+    autocmd ColorScheme * call onedark#extend_highlight("Search", { "bg": { "cterm": "146" } })
+  augroup END
+endif
+" call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
+
 
  
 " Vimplug
@@ -52,6 +57,7 @@ Plug 'radenling/vim-dispatch-neovim'
 Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 Plug 'skalnik/vim-vroom'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Make sure you use single quotes
 
@@ -184,7 +190,6 @@ function! LightlineFugitive()
   return ''
 endfunction
 
-
 " vim-test config
 nmap <silent> <leader>R :wall<CR>:TestNearest<CR>
 nmap <silent> <leader>r :wall<CR>:TestFile<CR>
@@ -197,3 +202,21 @@ let test#strategy = "vimux"
 nnoremap <C-k6> :e #<CR>
 " Shortcut for Ctrl-^
 nnoremap <leader>p :e #<CR>
+
+" Simpler window navigation
+nnoremap <C-Bslash> :TmuxNavigatePrevious<CR>                                                │Coverage report generated for RSpec to /Users/steve/Work/df
+nnoremap <C-L> :TmuxNavigateRight<CR>                                                   │e/apply-for-teacher-training/coverage/coverage.xml. 13438 /
+nnoremap <C-K> :TmuxNavigateUp<CR>                                                      │ 14005 LOC (95.95%) covered.
+nnoremap <C-J> :TmuxNavigateDown<CR>                                                    │Stopped processing SimpleCov as a previous error not relate
+nnoremap <C-H> :TmuxNavigateLeft<CR> 
+
+
+if (has("autocmd"))
+  augroup colorextend
+    autocmd!
+    " Override Search highlights
+    autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "cterm": "NONE" }, "bg": { "cterm": "NONE" } })
+    autocmd ColorScheme * call onedark#extend_highlight("Search", { "fg": { "cterm": "NONE" }, "bg": { "cterm": "NONE" } })
+  augroup END
+endif
+" call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
