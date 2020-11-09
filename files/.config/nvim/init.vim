@@ -11,28 +11,41 @@ let g:python_host_prog='/usr/local/bin/python'
 " cyan - LightSkyBlue1 (153)
 " green - Honeydew (194)
 let g:onedark_color_overrides = {
-\ "red": { "gui": "#FFFFDF", "cterm": "153", "cterm16": "1" },
-\ "dark_red": { "gui": "#FFFFDF", "cterm": "153", "cterm16": "1" },
-\ "green": { "gui": "#d7ffd7", "cterm": "194", "cterm16": "4" },
-\ "yellow": { "gui": "#AF87FF", "cterm": "225", "cterm16": "1" },
-\ "dark_yellow": { "gui": "#AF87FF", "cterm": "225", "cterm16": "1" },
-\ "blue": { "gui": "#afafff", "cterm": "146", "cterm16": "4" },
-\ "purple": { "gui": "#5fffd7", "cterm": "195", "cterm16": "5" },
-\ "cyan": { "gui": "#AFD7FF", "cterm": "194", "cterm16": "4" },
-\ "black": {"gui": "D0D0D0", "cterm": "233", "cterm16": "0" }
+\ "red": { "gui": "#AFD7FF", "cterm": "153", "cterm16": "1" },
+\ "dark_red": { "gui": "#AFD7FF", "cterm": "153", "cterm16": "1" },
+\ "green": { "gui": "#D7FFD7", "cterm": "194", "cterm16": "4" },
+\ "yellow": { "gui": "#FFDFFF", "cterm": "225", "cterm16": "1" },
+\ "dark_yellow": { "gui": "#FFDFFF", "cterm": "225", "cterm16": "1" },
+\ "blue": { "gui": "#AFAFD7", "cterm": "146", "cterm16": "4" },
+\ "purple": { "gui": "#DFFFFF", "cterm": "195", "cterm16": "5" },
+\ "cyan": { "gui": "#DFFFDF", "cterm": "194", "cterm16": "4" },
+\ "black": {"gui": "#121212", "cterm": "233", "cterm16": "0" }
 \}
+
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+" if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+" endif
 
 if (has("autocmd"))
   augroup colorextend
     autocmd!
     " Override Search highlights
-    autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "cterm": "233" } })
-    autocmd ColorScheme * call onedark#extend_highlight("Search", { "bg": { "cterm": "146" } })
+    autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "gui": "#121212", "cterm": "233" } })
+    autocmd ColorScheme * call onedark#extend_highlight("Search", { "bg": { "gui": "#AFAFD7", "cterm": "146" } })
   augroup END
 endif
-" call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
-
-
  
 " Vimplug
 call plug#begin('~/.config/nvim/plugged')
@@ -58,6 +71,7 @@ Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 Plug 'skalnik/vim-vroom'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'sheerun/vim-polyglot'
 
 " Make sure you use single quotes
 
