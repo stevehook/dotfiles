@@ -19,7 +19,8 @@ let g:onedark_color_overrides = {
 \ "blue": { "gui": "#AFAFD7", "cterm": "146", "cterm16": "4" },
 \ "purple": { "gui": "#DFFFFF", "cterm": "195", "cterm16": "5" },
 \ "cyan": { "gui": "#DFFFDF", "cterm": "194", "cterm16": "4" },
-\ "black": {"gui": "#121212", "cterm": "233", "cterm16": "0" }
+\ "black": {"gui": "#121212", "cterm": "233", "cterm16": "0" },
+\ "comment_grey": {"gui": "#949494", "cterm": "246", "cterm16": "15" }
 \}
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -42,11 +43,11 @@ if (has("autocmd"))
   augroup colorextend
     autocmd!
     " Override Search highlights
-    autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "gui": "#121212", "cterm": "233" } })
-    autocmd ColorScheme * call onedark#extend_highlight("Search", { "bg": { "gui": "#AFAFD7", "cterm": "146" } })
+    autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "gui": "#eeeeee", "cterm": "255" } })
+    autocmd ColorScheme * call onedark#extend_highlight("Search", { "bg": { "gui": "#4e4e60", "cterm": "239" } })
   augroup END
 endif
- 
+
 " Vimplug
 call plug#begin('~/.config/nvim/plugged')
 
@@ -72,6 +73,7 @@ Plug 'benmills/vimux'
 Plug 'skalnik/vim-vroom'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'sheerun/vim-polyglot'
+Plug 'mhinz/vim-grepper'
 
 " Make sure you use single quotes
 
@@ -222,15 +224,56 @@ nnoremap <C-Bslash> :TmuxNavigatePrevious<CR>                                   
 nnoremap <C-L> :TmuxNavigateRight<CR>                                                   │e/apply-for-teacher-training/coverage/coverage.xml. 13438 /
 nnoremap <C-K> :TmuxNavigateUp<CR>                                                      │ 14005 LOC (95.95%) covered.
 nnoremap <C-J> :TmuxNavigateDown<CR>                                                    │Stopped processing SimpleCov as a previous error not relate
-nnoremap <C-H> :TmuxNavigateLeft<CR> 
+nnoremap <C-H> :TmuxNavigateLeft<CR>
 
-
-if (has("autocmd"))
-  augroup colorextend
-    autocmd!
-    " Override Search highlights
-    autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "cterm": "NONE" }, "bg": { "cterm": "NONE" } })
-    autocmd ColorScheme * call onedark#extend_highlight("Search", { "fg": { "cterm": "NONE" }, "bg": { "cterm": "NONE" } })
-  augroup END
-endif
+" if (has("autocmd"))
+"   augroup colorextend
+"     autocmd!
+"     " Override Search highlights
+"     autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "cterm": "NONE" }, "bg": { "cterm": "NONE" } })
+"     autocmd ColorScheme * call onedark#extend_highlight("Search", { "fg": { "cterm": "NONE" }, "bg": { "cterm": "NONE" } })
+"   augroup END
+" endif
 " call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
+
+" Search/vim-grepper config
+let g:grepper       = {}
+let g:grepper.tools = ['ag', 'rg', 'grep', 'git']
+
+" Search for the current word
+nmap g/ :Grepper<CR>
+nmap g* :Grepper -cword -noprompt<CR>
+
+" Search for the current selection
+nmap gs <plug>(GrepperOperator)
+xmap gs <plug>(GrepperOperator)
+
+" Shortcuts to show and hide the location and quickfix lists
+function! GetBufferList()
+  redir =>buflist
+  silent! ls
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
