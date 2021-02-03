@@ -43,10 +43,18 @@ if (has("autocmd"))
   augroup colorextend
     autocmd!
     " Override Search highlights
-    autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "gui": "#eeeeee", "cterm": "255" } })
-    autocmd ColorScheme * call onedark#extend_highlight("Search", { "bg": { "gui": "#4e4e60", "cterm": "239" } })
+    let s:search_grey = { "gui": "#8898aa", "cterm": "061", "cterm16" : "0" }
+    let s:search_white = { "gui": "#000000", "cterm": "015", "cterm16" : "7" }
+    " autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "gui": "#eeeeee", "cterm": "255" } })
+    " autocmd ColorScheme * call onedark#extend_highlight("Search", { "bg": { "gui": "#4e4e60", "cterm": "239" } })
+    " autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "gui": "#121212", "cterm": "233" } })
+    autocmd ColorScheme * call onedark#extend_highlight("Search", { "bg": { "gui": "#AFAFD7", "cterm": "146" } })
+    autocmd ColorScheme * call onedark#set_highlight("Search", { "bg": s:search_grey, "fg": s:search_white })
+    autocmd ColorScheme * call onedark#set_highlight("IncSearch", { "bg": s:search_grey, "fg": s:search_white })
   augroup END
 endif
+
+" call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
 
 " Vimplug
 call plug#begin('~/.config/nvim/plugged')
@@ -72,8 +80,12 @@ Plug 'janko-m/vim-test'
 Plug 'benmills/vimux'
 Plug 'skalnik/vim-vroom'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 Plug 'mhinz/vim-grepper'
+Plug 'vim-scripts/YankRing.vim'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Make sure you use single quotes
 
@@ -168,6 +180,8 @@ let NERDTreeQuitOnOpen = 1
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>m :History<CR>
 nnoremap <leader>b :Buffers<CR>
+let g:fzf_preview_window = ['right:50%:hidden', 'ctrl-/']
+let g:fzf_layout = {'down': '30%'}
 
 " coc completion config
 " Use <Tab> and <S-Tab> to navigate the completion list:
@@ -226,15 +240,6 @@ nnoremap <C-K> :TmuxNavigateUp<CR>                                              
 nnoremap <C-J> :TmuxNavigateDown<CR>                                                    │Stopped processing SimpleCov as a previous error not relate
 nnoremap <C-H> :TmuxNavigateLeft<CR>
 
-" if (has("autocmd"))
-"   augroup colorextend
-"     autocmd!
-"     " Override Search highlights
-"     autocmd ColorScheme * call onedark#extend_highlight("IncSearch", { "fg": { "cterm": "NONE" }, "bg": { "cterm": "NONE" } })
-"     autocmd ColorScheme * call onedark#extend_highlight("Search", { "fg": { "cterm": "NONE" }, "bg": { "cterm": "NONE" } })
-"   augroup END
-" endif
-" call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
 
 " Search/vim-grepper config
 let g:grepper       = {}
@@ -277,3 +282,7 @@ function! ToggleList(bufname, pfx)
 endfunction
 nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
+
+" Yankstack mappings
+" nmap <leader>p <Plug>yankstack_substitute_older_paste
+" nmap <leader>P <Plug>yankstack_substitute_newer_paste
