@@ -6,7 +6,7 @@ export PATH="$(yarn global bin):$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 #export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
-export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+export EDITOR='/usr/local/bin/nvim'
 
 . ~/.zsh/aliases
 # source ~/.zsh/git-prompt/zshrc.sh
@@ -120,3 +120,5 @@ export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 ulimit -S -n 2048
+
+. /usr/local/opt/asdf/asdf.sh
