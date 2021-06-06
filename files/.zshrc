@@ -1,8 +1,8 @@
 # MacPorts Installer addition on 2011-02-15_at_19:49:49: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$PATH
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-export PATH="$(yarn global bin):$PATH"
+# export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$PATH
+# export GOPATH=$HOME/go
+# export PATH=$PATH:$GOPATH/bin
+# export PATH="$(yarn global bin):$PATH"
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 #export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
@@ -113,7 +113,6 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 
@@ -122,3 +121,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 ulimit -S -n 2048
 
 . /usr/local/opt/asdf/asdf.sh
+
+# workaround Ctrl-r not working in TMUX
+bindkey '^R' history-incremental-search-backward
