@@ -84,8 +84,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-grepper'
 Plug 'vim-scripts/YankRing.vim'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " Make sure you use single quotes
 
@@ -141,10 +141,10 @@ set incsearch
 set ignorecase
 set smartcase
 
-" Tab completion
-set wildmenu
-set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,tmp/**,*/node_modules/*
+" " Tab completion
+" set wildmenu
+" set wildmode=list:longest,list:full
+" set wildignore+=*.o,*.obj,.git,*.rbc,tmp/**,*/node_modules/*
 
 " Status bar
 set laststatus=2
@@ -183,10 +183,29 @@ nnoremap <leader>b :Buffers<CR>
 let g:fzf_preview_window = ['right:50%:hidden', 'ctrl-/']
 let g:fzf_layout = {'down': '30%'}
 
-" coc completion config
-" Use <Tab> and <S-Tab> to navigate the completion list:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" -----------------------------------------------------------------------------
+" coc.nvim config
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable delays and poor user experience.
+set updatetime=300
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " Use <cr> to confirm completion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "To make <cr> select the first completion item and confirm the completion when no item has been selected:
@@ -195,6 +214,9 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " Close the preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" end of coc.nvim config
+" -----------------------------------------------------------------------------
 
 " Lightline colourscheme
 let g:lightline = {
@@ -234,10 +256,10 @@ nnoremap <C-k6> :e #<CR>
 nnoremap <leader>p :e #<CR>
 
 " Simpler window navigation
-nnoremap <C-Bslash> :TmuxNavigatePrevious<CR>                                                │Coverage report generated for RSpec to /Users/steve/Work/df
-nnoremap <C-L> :TmuxNavigateRight<CR>                                                   │e/apply-for-teacher-training/coverage/coverage.xml. 13438 /
-nnoremap <C-K> :TmuxNavigateUp<CR>                                                      │ 14005 LOC (95.95%) covered.
-nnoremap <C-J> :TmuxNavigateDown<CR>                                                    │Stopped processing SimpleCov as a previous error not relate
+nnoremap <C-Bslash> :TmuxNavigatePrevious<CR>
+nnoremap <C-L> :TmuxNavigateRight<CR>
+nnoremap <C-K> :TmuxNavigateUp<CR>
+nnoremap <C-J> :TmuxNavigateDown<CR>
 nnoremap <C-H> :TmuxNavigateLeft<CR>
 
 
@@ -282,7 +304,3 @@ function! ToggleList(bufname, pfx)
 endfunction
 nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <leader>e :call ToggleList("Quickfix List", 'c')<CR>
-
-" Yankstack mappings
-" nmap <leader>p <Plug>yankstack_substitute_older_paste
-" nmap <leader>P <Plug>yankstack_substitute_newer_paste
