@@ -84,24 +84,37 @@ scrolling:
 font:
   # Normal (roman) font face
   normal:
-    family: "Source Code Pro for Powerline"
-    # family: Menlo
-    # The `style` can be specified to pick a specific face.
+    family: "Recursive Monospace Casual"
     style: Light
+    #
+    #
+    # family: "IBM Plex Mono"
+    # style: Thin
+    #
+    # family: "Source Code Pro for Powerline"
+    # style: Light
 
   # Italic font face
   bold:
-    family: "Source Code Pro for Powerline"
+    family: "Recursive Monospace Casual"
+    style: Light
+
+    # family: "Source Code Pro for Powerline"
+    # style: Light
+    #
     # family: Menlo
     # The `style` can be specified to pick a specific face.
-    style: Light
 
   # Italic font face
   italic:
-    family: "Source Code Pro for Powerline"
+    family: "Recursive Monospace Casual"
+    style: Light
+
+    # family: "Source Code Pro for Powerline"
+    # style: ExtraLight
+    #
     # family: Menlo
     # The `style` can be specified to pick a specific face.
-    style: ExtraLight
 
   # Point size
   size: 15.0
