@@ -1,15 +1,5 @@
 let g:python_host_prog='/usr/local/bin/python'
-" set runtimepath^=~/.vim runtimepath+=~/.vim/after
-" let &packpath = &runtimepath
-" source ~/.vimrc
 
-" purple -> LightCyan1 (195)
-" yellow - Thistle1 (225)
-" blue - LightSteelBlue (146)
-" red - Cornsilk1 (230)
-" dark_red - Cornsilk1 (230)
-" cyan - LightSkyBlue1 (153)
-" green - Honeydew (194)
 let g:onedark_color_overrides = {
 \ "red": { "gui": "#AFD7FF", "cterm": "153", "cterm16": "1" },
 \ "dark_red": { "gui": "#AFD7FF", "cterm": "153", "cterm16": "1" },
@@ -84,22 +74,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'mhinz/vim-grepper'
 Plug 'vim-scripts/YankRing.vim'
 
+" ultisnips keyboard mappings clash with coc.nvim
 " Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-" Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" Plugin outside ~/.vim/plugged with post-update hook
-" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'honza/vim-snippets'
 
 " Initialize plugin system
 call plug#end()
@@ -107,7 +84,6 @@ call plug#end()
 " Basic options
 set background=dark
 colorscheme onedark
-" colorscheme plain
 let mapleader="\<Space>"
 " set guifont=Monaco:h14
 set hidden
@@ -214,6 +190,14 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 " Close the preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references) 
+
+let g:coc_global_extensions = ['coc-solargraph']
 
 " end of coc.nvim config
 " -----------------------------------------------------------------------------
