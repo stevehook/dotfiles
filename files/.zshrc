@@ -6,7 +6,7 @@
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 #export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
-export EDITOR='/usr/local/bin/nvim'
+export EDITOR='/opt/homebrew/bin/nvim'
 
 . ~/.zsh/aliases
 # source ~/.zsh/git-prompt/zshrc.sh
@@ -120,7 +120,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 ulimit -S -n 2048
 
-. /usr/local/opt/asdf/asdf.sh
-
 # workaround Ctrl-r not working in TMUX
 bindkey '^R' history-incremental-search-backward
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
