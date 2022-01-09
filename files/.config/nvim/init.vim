@@ -1,4 +1,4 @@
-let g:python_host_prog='/usr/local/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'
 
 let g:onedark_color_overrides = {
 \ "red": { "gui": "#AFD7FF", "cterm": "153", "cterm16": "1" },
