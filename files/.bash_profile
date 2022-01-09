@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 source ~/git-completion.bash
 # export PS1='\w$(__git_ps1 "(%s)") > '
 export PS1='\[\033[01;32m\]\h\[\033[00;37m\] \w\[\033[31m\]$(__git_ps1 " (%s)") \[\033[00;37m\]\n$\[\033[00m\] '
@@ -17,3 +22,8 @@ export PATH=/usr/local/git/bin:$PATH
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####

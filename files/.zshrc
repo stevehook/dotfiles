@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # MacPorts Installer addition on 2011-02-15_at_19:49:49: adding an appropriate PATH variable for use with MacPorts.
 # export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$PATH
 # export GOPATH=$HOME/go
@@ -111,8 +116,8 @@ function rbenvsudo(){
 }
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-source ~/.zsh-nvm/zsh-nvm.plugin.zsh
-if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
+# source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+# if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 
@@ -124,3 +129,8 @@ ulimit -S -n 2048
 bindkey '^R' history-incremental-search-backward
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
