@@ -485,7 +485,7 @@ call s:h("rubyInterpolationDelimiter", { "fg": s:red})
 call s:h("rubyRegexp", { "fg": s:cyan})
 call s:h("rubyRegexpDelimiter", { "fg": s:cyan})
 call s:h("rubyStringDelimiter", { "fg": s:green})
-call s:h("rubySymbol", { "fg": s:cyan})
+call s:h("rubySymbol", { "fg": s:dark_red})
 
 " Sass
 " https://github.com/tpope/vim-haml
