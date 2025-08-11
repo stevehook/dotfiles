@@ -1,2 +1,4 @@
 tags
 .solargraph.yml
+.tool-versions
+config/definition.rb

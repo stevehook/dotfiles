@@ -4,6 +4,6 @@
     "coc-html": ">=1.5.1",
     "coc-json": ">=1.4.0",
     "coc-snippets": ">=2.4.7",
-    "coc-solargraph": ">=1.2.2"
+    "coc-solargraph": ">=1.2.4"
   }
 }

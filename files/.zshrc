@@ -1,15 +1,3 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
-# MacPorts Installer addition on 2011-02-15_at_19:49:49: adding an appropriate PATH variable for use with MacPorts.
-# export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/bin:$PATH
-# export GOPATH=$HOME/go
-# export PATH=$PATH:$GOPATH/bin
-# export PATH="$(yarn global bin):$PATH"
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 #export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 export EDITOR='/opt/homebrew/bin/nvim'
 
@@ -104,16 +92,9 @@ mkcd () {
   mkdir -p "$1" && cd "$1"
 }
 
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# export PATH=/usr/local/bin:$PATH
+# export PATH=/usr/local/sbin:$PATH
 
-function rbenvsudo(){
-  executable=$1
-  shift 1
-  sudo $(rbenv which $executable) $*
-}
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 # source ~/.zsh-nvm/zsh-nvm.plugin.zsh
@@ -130,7 +111,31 @@ bindkey '^R' history-incremental-search-backward
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
+# Nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Yvm
+export YVM_DIR=/usr/local/opt/yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
+
+# Set default AWS profile
+export AWS_PROFILE=Engineer-878877078763
+
+# pyenv
+eval "$(pyenv init -)"
+
+# pip install executables here
+export PATH="$HOME/.local/bin:$PATH"
+
+# hoot up direnv
+eval "$(direnv hook zsh)"
+
+PATH="/Users/steve/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/steve/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/steve/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/steve/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/steve/perl5"; export PERL_MM_OPT;

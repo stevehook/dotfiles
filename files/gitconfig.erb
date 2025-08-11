@@ -33,8 +33,52 @@
 
 [github]
 
-[init]
-  templatedir = ~/.git_template
+[commit]
+	verbose = true
+	gpgsign = true
 
 [core]
-  excludesfile = /Users/steve/.gitignore_globaltemplatedir = ~/.git_template
+	editor = nvim
+  pager = diff-highlight
+  excludesfile = /Users/steve/.gitignore_global
+  templatedir = ~/.git_template
+	UseHttpPath = true
+
+[merge]
+	ff = false
+	conflictStyle = zdiff3
+
+diff]
+	algorigthm = histogram
+	colorMoved = default
+
+[difftool]
+	prompt = false
+	trustExitCode = true
+
+[fetch]
+	prune = true
+
+[pull]
+	rebase = true
+
+[core]
+
+[log]
+	date = iso
+
+[init]
+  templatedir = ~/.git_template
+	defaultBranch = main
+
+[rerere]
+	enabled = true
+
+[mailmap]
+	file = /home/peter/.mailmap
+
+[blame]
+	coloring = highlightRecent
+
+[color "blame"]
+	highlightRecent = white,1 month ago,yellow,1 week ago,red
