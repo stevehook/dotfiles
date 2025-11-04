@@ -107,7 +107,7 @@ set hidden
 set history=1000
 set undolevels=1000
 set title
-set guioptions=aAce
+" set guioptions=aAce
 set t_vb=
 set shell=/bin/bash
 set nocompatible

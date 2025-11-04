@@ -1,5 +1,5 @@
 #export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
-export EDITOR='/opt/homebrew/bin/nvim'
+export EDITOR='NVIM_APPNAME=nvim-lazyvim /opt/homebrew/bin/nvim'
 
 . ~/.zsh/aliases
 # source ~/.zsh/git-prompt/zshrc.sh

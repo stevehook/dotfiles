@@ -7,3 +7,13 @@ files/.vim/bundle/*
 files/.config/yarn
 files/.config/coc/extensions/node_modules
 files/.config/nvim/plugged
+files/.config/tmuxinator
+files/.config/coc/list-location-history.json
+files/.config/coc/snippets-mru
+files/.config/github-copilot
+files/.config/filezilla/
+files/.config/gh/
+files/.config/htop/
+files/.config/nvim/autoload/plug.vim
+files/.config/nvim/pack/
+files/.config/tmux/

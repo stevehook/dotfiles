@@ -1,0 +1,20 @@
+################################################################################
+# This is the configuration file for Ghostty.
+#
+# Cmd+Shift+, to reload
+
+################################################################################
+# ghostty +list-themes
+#
+# font-family=Menlo
+# font-family=Monaco
+# font-family=Noto Nerd Font Mono
+font-family=FantasqueSansM Nerd Font Mono
+# font-family-bold
+# font-family-italic
+# font-family-bold-italic
+
+################################################################################
+# ghostty +list-themes
+#
+theme=Catppuccin Mocha
